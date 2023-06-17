@@ -1,3 +1,4 @@
+import 'package:ekotel/view/homepage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -17,12 +18,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Example')),
-        body: const Center(
-          child: Text("Hello, world"),
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      home: homePage(),
     );
   }
 }
