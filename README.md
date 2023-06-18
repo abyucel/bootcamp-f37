@@ -68,5 +68,76 @@ Otel dönüşü sonrası kullanıcı, uygulamada yorum yaparak bu otel hakkında
 
 + Tüm bu sınav takvimleri ardından Whatsapp üzerinden bir anket ile toplantıların aralıklarını ve toplantı saatlerini kararlaştırdık.
 
+  ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/3f6213d4-4206-4fe8-8797-265dc7d09bd9)   ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/947cee77-6fb8-40b5-a791-7bc62dd134b8)
+
++ Anket ardından hafta içi her gün 20.30’da 15 dakikalık Dailyler yapmaya karar verdik. Toplantılarımızın yapılması ve dosyalarımızın saklanması için bir Discord kanalı oluşturduk.
+
+  ## Sprint Review:
+Projemizin fikir aşamasının çok önemli olduğu için ekibin temel odak noktasını bu tarafa çektik. Beyin fırtınası yaparak ekibin her üyesinin birden çok proje fikri bulmasını istedik ve eleyerek 5 adet temel proje fikri bıraktık.
+
+![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/d0e68c48-ef10-4696-8f15-2d24a73d0de7)
+
++Son aşamada proje fikrinin belirlenmesi için kapalı bir oylama yaptık ve projemizin fikri belirlenmiş oldu.
+
+![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/0bfe609a-3251-43ee-8c8e-b1b7ccbc5f1a)
+
+Proje fikri belirlendikten sonra ekibin görev dağılımlarını tamamladık.
++Mustafa : Scrum Master,Developer
++Ahmet : Proje Master.Developer
++Ümmügülsüm: Developer
++Erva: Developer
++Mert: Developer
+
++Proje fikrinin sahibi Ahmet olduğu için proje master, daha önce bulunan deneyimlerden dolayı Mustafa Scrum Master seçildi.
++Proje fikri sahibi Ahmet uygulamanın genel duruşu hakkında en fazla bilgiye sahip olması için Pseudo UI çizilmesi istendi, bu sayede Designerlar daha net şekilde tasarım yapılması sağlandı.
+
+ 
+![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/ae3c0053-ded9-4e77-b115-7f8960997284)
+![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/f8770ad5-5bbd-43c3-873c-da0d24939087)
+
++Pseudo Design ardından UI tarafında daha önce tasarım yaptığı için Mustafa uygulamanın UI Designlarını figma üzerinden tasarlamaya başladı.
+
+![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/01971817-9c86-41d0-b1e9-dfb7a1a65676)
+![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/7eef9982-dacc-45e1-8f9a-7659375e6d66)
+
++Uygulama UI’ı Proje Master’ının düşüncesi doğrultusunda olması için birden fazla revize gördü ve ortak noktalara ulaşıldı.
+
++Tasarımların netleşmesi ardından uygulamanın sahip olması gereken fonksiyonlar ve özellikler backloglanarak listelendi.
+
++Proje büyüklüğü ve ekip üyesi sayısı dikkate alınarak uygulamayı yürütmek için en pratik yolu Google Tablolarda bulduk. Backlog dosyasının yazılması için Project Master ve Scrum Master birden fazla toplantı gerçekleştirdi.
++Scrum Master(Mustafa KARA)Teknik ve teknik olmayan task listesi üzerinden ekip üyelerine görevlerini atamaya başladı.
++Tasklerin atanması ardından ekip üyeleri deadline sınırları içerisinde görevlerini yapmalarına başladılar.
++Versiyonlar halinde gerçekleştirilmesine karar verilen proje ilk scum yani version 0.0.1 içersinde 
+•	Welcome Page
+•	Signin Screen
+•	Register Screen
+•	HomePage Basics
+Sayfalarının kodlanması için gereken taskler verildi ve tamamlandı
+
+## SPRINT BOARD UPDATE:
+
+  ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/d6f6ec58-507e-41d8-9d34-3187a845eb1e)    ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/b37e2948-77b1-41b6-96b9-7f8f6b55f675)
+
+
+ ## Screen Shots
+ ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/0529ee64-e16c-453d-bca2-8560658f0ec3)   ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/f2ed2020-5dd6-4592-9a62-efcc7064cc8f)  ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/d33f8c22-5e52-444a-9e90-90de44d2ab97)
+
+
+## Sprint Retrospective:
+-	Projenin genel gidişatı için gereken temeller tamamlanmıştır
+-	Projede kullanıcı girişi, kayıt ol ve misafir girişi işlemleri için firebase temelleri kurulmuştur.
+-	4 sayfanın şablon olarak kullanılıcak kodlanmaları tamamlanmıştır
+-	Uygulama içerisinde kullanılıcak button kütüphanesi custom olarak kodlanmıştır.
+-	Geri kalan 2 sprint süresinde ekibin her üyesinin daha fazla aktif olması gerektiği kararına varılmıştır.
+-	Görevlerin deadline ı için daha fazla süre istenmiştir.
+
+
+
+
+
+
+
+
+
 
 
