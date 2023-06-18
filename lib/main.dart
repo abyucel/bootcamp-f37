@@ -1,4 +1,9 @@
+<<<<<<< Updated upstream
 import 'package:ekotel/view/homepage.dart';
+=======
+import 'package:ekotel/girisSayfasi.dart';
+import 'package:ekotel/kayitol.dart';
+>>>>>>> Stashed changes
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +24,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+<<<<<<< Updated upstream
       home: homePage(),
+=======
+      title: 'Flutter Demo',
+      home: KayitSayfasi(),
+>>>>>>> Stashed changes
     );
   }
 }
