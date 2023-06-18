@@ -26,6 +26,10 @@ flutter build apk --release --target-platform android-arm,android-arm64
 
 Takımımızda macOS kullanan bir üye bulunmadığından Apple cihazları için bir uygulama sağlayamıyoruz.
 
+## Product Backlog URL
+
+ + https://docs.google.com/spreadsheets/d/1-t9auiCSkU0xhwKEhTpSQff-Z8Cynn-lCvCoE_f39IQ/edit?usp=sharing
+
 
 # Ekotel - Ekoturizm odaklı tatil/seyahat uygulaması
 
