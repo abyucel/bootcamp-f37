@@ -104,10 +104,10 @@ Proje fikri belirlendikten sonra ekibin görev dağılımlarını tamamladık.
 
 + Tasarımların netleşmesi ardından uygulamanın sahip olması gereken fonksiyonlar ve özellikler backloglanarak listelendi.
 
-+Proje büyüklüğü ve ekip üyesi sayısı dikkate alınarak uygulamayı yürütmek için en pratik yolu Google Tablolarda bulduk. Backlog dosyasının yazılması için Project Master ve Scrum Master birden fazla toplantı gerçekleştirdi.
-+Scrum Master(Mustafa KARA)Teknik ve teknik olmayan task listesi üzerinden ekip üyelerine görevlerini atamaya başladı.
-+Tasklerin atanması ardından ekip üyeleri deadline sınırları içerisinde görevlerini yapmalarına başladılar.
-+Versiyonlar halinde gerçekleştirilmesine karar verilen proje ilk scum yani version 0.0.1 içersinde 
++ Proje büyüklüğü ve ekip üyesi sayısı dikkate alınarak uygulamayı yürütmek için en pratik yolu Google Tablolarda bulduk. Backlog dosyasının yazılması için Project Master ve Scrum Master birden fazla toplantı gerçekleştirdi.
++ Scrum Master(Mustafa KARA)Teknik ve teknik olmayan task listesi üzerinden ekip üyelerine görevlerini atamaya başladı.
++ Tasklerin atanması ardından ekip üyeleri deadline sınırları içerisinde görevlerini yapmalarına başladılar.
++ Versiyonlar halinde gerçekleştirilmesine karar verilen proje ilk scum yani version 0.0.1 içersinde 
 •	Welcome Page
 •	Signin Screen
 •	Register Screen
