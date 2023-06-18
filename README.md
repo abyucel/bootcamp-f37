@@ -64,6 +64,9 @@ Uygulamadan rezervasyon yapıldıktan sonra, kullanıcının profiline ortalama 
 Bu örnekte, örnek olarak diğer oteller yerine bu oteli tercih ederek karbon salınımı konusunda diğer turistlere kıyasla %X daha az zarar vermiş ise profile bu miktar eklenir.+ Profile ekleme sistemi isteğe bağlıdır. Rezervasyon sırasında bu durum iptal edilebilir.
 Otel dönüşü sonrası kullanıcı, uygulamada yorum yaparak bu otel hakkında tecrübelerini paylaşabilir ve rekabette görünümüne etki edebilir.
 
+## SPRINT 1:
++Sprint içinde tamamlanması tahmin edilen puan:59
++Puan tamamlama şeması: Proje toplamında şu an bulunan görev listesine göre 206 puanlık temel iş bulunmaktaadır. Sprint 1 temel oluşturma ve fikir bulma aşaması olduğu için düşük puanlı fakat kritik görevleri koyduk. Sprint 2 en yüksek puanlı ve en önemli sprint olduğuna kararına varıldı.
 
 ## DAILY SCRUM:
 + Dailylerin belirlenmesi için ekibin içerisinde bulunan öğrencilerin final haftalarında bulunan sınav tarihlerini topladık.
