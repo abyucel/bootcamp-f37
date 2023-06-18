@@ -73,36 +73,36 @@ Otel dönüşü sonrası kullanıcı, uygulamada yorum yaparak bu otel hakkında
 + Anket ardından hafta içi her gün 20.30’da 15 dakikalık Dailyler yapmaya karar verdik. Toplantılarımızın yapılması ve dosyalarımızın saklanması için bir Discord kanalı oluşturduk.
 
   ## Sprint Review:
-Projemizin fikir aşamasının çok önemli olduğu için ekibin temel odak noktasını bu tarafa çektik. Beyin fırtınası yaparak ekibin her üyesinin birden çok proje fikri bulmasını istedik ve eleyerek 5 adet temel proje fikri bıraktık.
++ Projemizin fikir aşamasının çok önemli olduğu için ekibin temel odak noktasını bu tarafa çektik. Beyin fırtınası yaparak ekibin her üyesinin birden çok proje fikri bulmasını istedik ve eleyerek 5 adet temel proje fikri bıraktık.
 
 ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/d0e68c48-ef10-4696-8f15-2d24a73d0de7)
 
-+Son aşamada proje fikrinin belirlenmesi için kapalı bir oylama yaptık ve projemizin fikri belirlenmiş oldu.
++ Son aşamada proje fikrinin belirlenmesi için kapalı bir oylama yaptık ve projemizin fikri belirlenmiş oldu.
 
 ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/0bfe609a-3251-43ee-8c8e-b1b7ccbc5f1a)
 
 Proje fikri belirlendikten sonra ekibin görev dağılımlarını tamamladık.
 +Mustafa : Scrum Master,Developer
-+Ahmet : Proje Master.Developer
-+Ümmügülsüm: Developer
-+Erva: Developer
-+Mert: Developer
++ Ahmet : Proje Master.Developer
++ Ümmügülsüm: Developer
++ Erva: Developer
++ Mert: Developer
 
-+Proje fikrinin sahibi Ahmet olduğu için proje master, daha önce bulunan deneyimlerden dolayı Mustafa Scrum Master seçildi.
-+Proje fikri sahibi Ahmet uygulamanın genel duruşu hakkında en fazla bilgiye sahip olması için Pseudo UI çizilmesi istendi, bu sayede Designerlar daha net şekilde tasarım yapılması sağlandı.
++ Proje fikrinin sahibi Ahmet olduğu için proje master, daha önce bulunan deneyimlerden dolayı Mustafa Scrum Master seçildi.
++ Proje fikri sahibi Ahmet uygulamanın genel duruşu hakkında en fazla bilgiye sahip olması için Pseudo UI çizilmesi istendi, bu sayede Designerlar daha net şekilde tasarım yapılması sağlandı.
 
  
 ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/ae3c0053-ded9-4e77-b115-7f8960997284)
 ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/f8770ad5-5bbd-43c3-873c-da0d24939087)
 
-+Pseudo Design ardından UI tarafında daha önce tasarım yaptığı için Mustafa uygulamanın UI Designlarını figma üzerinden tasarlamaya başladı.
++ Pseudo Design ardından UI tarafında daha önce tasarım yaptığı için Mustafa uygulamanın UI Designlarını figma üzerinden tasarlamaya başladı.
 
 ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/01971817-9c86-41d0-b1e9-dfb7a1a65676)
 ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/7eef9982-dacc-45e1-8f9a-7659375e6d66)
 
-+Uygulama UI’ı Proje Master’ının düşüncesi doğrultusunda olması için birden fazla revize gördü ve ortak noktalara ulaşıldı.
++ Uygulama UI’ı Proje Master’ının düşüncesi doğrultusunda olması için birden fazla revize gördü ve ortak noktalara ulaşıldı.
 
-+Tasarımların netleşmesi ardından uygulamanın sahip olması gereken fonksiyonlar ve özellikler backloglanarak listelendi.
++ Tasarımların netleşmesi ardından uygulamanın sahip olması gereken fonksiyonlar ve özellikler backloglanarak listelendi.
 
 +Proje büyüklüğü ve ekip üyesi sayısı dikkate alınarak uygulamayı yürütmek için en pratik yolu Google Tablolarda bulduk. Backlog dosyasının yazılması için Project Master ve Scrum Master birden fazla toplantı gerçekleştirdi.
 +Scrum Master(Mustafa KARA)Teknik ve teknik olmayan task listesi üzerinden ekip üyelerine görevlerini atamaya başladı.
