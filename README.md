@@ -61,4 +61,12 @@ Bu örnekte, örnek olarak diğer oteller yerine bu oteli tercih ederek karbon s
 Otel dönüşü sonrası kullanıcı, uygulamada yorum yaparak bu otel hakkında tecrübelerini paylaşabilir ve rekabette görünümüne etki edebilir.
 
 
+## DAILY SCRUM:
++ Dailylerin belirlenmesi için ekibin içerisinde bulunan öğrencilerin final haftalarında bulunan sınav tarihlerini topladık.
+
+![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/54a28874-39a1-4d0b-93bb-a6081e174040)
+
++ Tüm bu sınav takvimleri ardından Whatsapp üzerinden bir anket ile toplantıların aralıklarını ve toplantı saatlerini kararlaştırdık.
+
+
 
