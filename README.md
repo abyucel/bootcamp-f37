@@ -127,7 +127,8 @@ Sayfalarının kodlanması için gereken taskler verildi ve tamamlandı
 
 
  ## Screen Shots
- ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/0529ee64-e16c-453d-bca2-8560658f0ec3)   ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/f2ed2020-5dd6-4592-9a62-efcc7064cc8f)  ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/d33f8c22-5e52-444a-9e90-90de44d2ab97)
+ ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/0529ee64-e16c-453d-bca2-8560658f0ec3)   ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/f2ed2020-5dd6-4592-9a62-efcc7064cc8f) ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/7ca91942-c827-4b4d-bf80-0bc2a3f0de69)
+ ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/d33f8c22-5e52-444a-9e90-90de44d2ab97)
 
 
 ## Sprint Retrospective:
