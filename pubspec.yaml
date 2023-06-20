@@ -46,11 +46,28 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  fonts:        
+    - family: RobotoBOLD
+      fonts:
+        - asset: assets/fonts/RobotoCondensed-Bold.ttf
+
+    - family: RobotoBOLDItalic
+      fonts:
+        - asset: assets/fonts/RobotoCondensed-BoldItalic.ttf
+
+    - family: RobotoItalic
+      fonts:
+        - asset: assets/fonts/RobotoCondensed-Italic.ttf
+
+    - family: RobotoLight
+      fonts:
+        - asset: assets/fonts/RobotoCondensed-Light.ttf
+    
+    - family: RobotoRegular
+      fonts:
+        - asset: assets/fonts/RobotoCondensed-Regular.ttf
+
+
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
