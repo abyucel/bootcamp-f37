@@ -125,6 +125,23 @@ Sayfalarının kodlanması için gereken taskler verildi ve tamamlandı
 
   ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/d6f6ec58-507e-41d8-9d34-3187a845eb1e)    ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/b37e2948-77b1-41b6-96b9-7f8f6b55f675)
 
+## SPRINT NOTLARI:
+
+Teknik Olmayan Görevler:
+-Ekip üyelerine uygun dailylerin tasarlandı ve genel toplantıların yapılması için bir discord sunucusu kuruldu
+- Sprintler arasında yapılacak işlerin karar verilmesi. 
+- Github reposunun açıldı ve her üyenin o repoyu forklandı.
+
+Teknik Olan Görevler: 
+-UI Designda bulunan Color Palette'nin çıkarıldı.
+-Uygulamanın içerisinde bulunan Asstlerler projeye dahil edildi.
+-Uygulamanın kullanacağı font grupları dahil edildi.
+-Firebase servisleri bağlandı ve temelleri atıldı.
+-Projede bulunan sabit olan butonlar, bottombar vb. bir const objeler tanımlandı.
+-WelcomePage kodlandı.
+-SigninPage kodlandı.
+-Login kodlandı.
+-HomePage kodlandı.
 
  ## Screen Shots
  ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/0529ee64-e16c-453d-bca2-8560658f0ec3)   ![image](https://github.com/abyucel/bootcamp-f37/assets/123782291/f2ed2020-5dd6-4592-9a62-efcc7064cc8f) 
