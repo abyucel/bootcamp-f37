@@ -1,7 +1,7 @@
 import 'package:ekotel/view/homepage.dart';
+import 'package:ekotel/view/otelprofile.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: homePage(),
+      home: OtelProfile(),
     );
   }
 }
