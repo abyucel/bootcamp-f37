@@ -33,6 +33,8 @@ flutter:
     - assets/resimler/dalga.png
     - assets/resimler/otel.jpg
     - assets/resimler/oteliç.jpg
+    - assets/resimler/kullanıcı.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
