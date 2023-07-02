@@ -1,4 +1,4 @@
-# OUA Bootcamp, F-37
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/2314952e-c5fe-4538-b0c0-b5c3ea51e093)# OUA Bootcamp, F-37
 
 Oyun ve Uygulama Akademisi Bootcamp, Takım F-37'nin projesi.
 
@@ -158,12 +158,94 @@ Teknik Olan Görevler:
 -	Görevlerin deadline ı için daha fazla süre istenmiştir.
 
 
+## SPRINT 2:
+PROJE BACKLOG : https://docs.google.com/spreadsheets/d/1-t9auiCSkU0xhwKEhTpSQff-Z8Cynn-lCvCoE_f39IQ/edit?usp=sharing
+Sprint içinde tamamlanması gereken tahmini puan: 92
+
+## DAILY SCRUM:
+20.06.2023 -> 
+•	GitHub hakkında konuşuldu.
+•	Firebase hakkında yapılan işlemler incelendi ve yapılacaklar konuşuldu.
+•	Sprint 1 in genel özeti geçildi ve Sprint 2 hakkında yapılması gerekenler konuşuldu
+•	Iletişimin daha da güçlendirilmesi istenildi
+
+21.06.2023 
+Mustafa: Navigation barr yazılıyor, onpressed kısmı incelenerek uygulama içinde kullanılabilir hale getirilicek.
+ Ahmet: Firebase için Riverpod'a geçiş tamamladım. 
+Erva: ben daha başlamadım bu gece yada yarın başlayacağım 
+Ümmü Gülsüm: ben bugün dışardaydım o yüzden daha kod kısmına başlamadım akşam bir şeyler yazmayı denicem 
+Mert: Yapılacak sayfaları inceledim kod yazmaya başlamadım.
+22.06.2023 
+Ahmet: Bilgisayarım arzalandığından dolayı işlem yapamadım. 
+Ümmü Gülsüm: Sayfayı genel hatlarıyla yaptım. 
+Erva: Sayfanın geneli tamamlandı, bazı ufak detaylari yapacağım. 
+Mert: Basit bir sayfa kodlaması yaptım 
+Mustafa: Sayfayı kodlama aşamasındayım.
+23.06.2023 
+Genel olarak yapılan sayfalar hakkında yorumlar ve öneriler ortaya atıldı. Kod kısmında karşılaşılan hatalara çözüm arandı 
+24.06.2023 
+Herkes kodlama kısmında hangi aşamada olduğunu belirtti. Bazı arkadaşlar kodlarını GitHub reposuna yükleme başladı 
+25.06.2023 
+Genel bir günlük toplantı niteliğinde oldu. 
+26.06.2023 Gerekli revizeler söylendi. Bazı sayfalarda düzenlemeler yapıldı.
+27.06.2023 Teknik konular üzerine kısa toplantı yapıldı. Somut olarak neler yaptığımızı incelendi. 
+28.06.2023 Bayram kutlamasi yapıldı. Çok yoğun olmayacak şekilde proje hakkında konuşuldu 
+29.06.2023 Günlük toplantıya bir gün ara verildi 
+30.06.2023 
+Yapılan her şey tekrar inceledi. Bazı eksiklikler farkedildi, bunun doğrultusunda işlem yapıldı.
+ 01.07.2023 Farkedilen eksiklikler hakkında yapılan düzeltmeler incelendi ve eksiklik giderildi.
 
 
+## SPRINT REVIEW: 
+
+Sprint Review:
+
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/9f2820a8-5269-4184-9b47-61b7b31ef195)
+
+ 
+•	Projenin ilk sprinti ardından, planlarımızı full uygulamayı yazmak üzerine çevirdik. Tüm sayfaları sprint 3’e kalmadan genel hatları ile yazmayı tercih ettik. Bu sayede daha kullanıcı canlısı bir uygulama geliştirmiş olacaktık. Sprint 3 te sadece var olan hataları kapatmayı hedeflerken tabi ki düşüncemizden farklı rotalar alındı.
+•	Bayram tatili ve ekip üyelerinin yaşadığı aksilikler nedeni ile tüm uygulama hazır hale gelemedi. 
+
+Sprint Notları:
+Teknik olmayan Taskler:
+•	Otelleri ayrıştırılması
+•	Otellerin Eco Oranın belirlenmesi
+Teknik olan Taskler:
+•	HomePage UI Code
+•	SearchPage UI Code
+•	Otel Profili UI Code
+•	Karşılaştırma ekranı UI Code
+•	Yorumlar UI Code
+•	Rezervasyon UI Code
+•	Profil UI Code
+•	Firebase servis – UI
+•	Bottom bar
+•	FilterPage UI Code
+•	Otellerin Firebase'den çekilmesi
 
 
+## SCREEN SHOTS
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/c31f4e32-e677-434d-8ee5-fa63597a8c27)
 
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/48fd668d-cba9-48ba-afdc-c1c2e60567d7)
 
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/72887b3b-49e8-45c1-8f65-8a7883ad0f11)
 
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/3da22666-9f19-439a-84ae-8f9cea37df66)
 
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/ae79f627-b1e0-4e79-a8fd-d5fcba51f5f8)
 
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/f619c805-e465-4fff-abb7-ca89738b6b91)
+
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/1e5d1c9f-ff11-4cd1-a1e5-ae4837241622)
+
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/4720ec94-0975-47d5-88b0-8b59079a1469)
+
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/a41c5c50-b1bc-48a7-a894-d11d5a7082d6)
+
+## SPRINT RETROSPECTIVE
+
+•	Projenin tüm sayfalarının UI asarımları şablon olarak tamamlanmıştır
+•	Projede custom olarak yaratılan bottom bar verimli çalışmadığı için hazır bottom bar paketleri kullanılmaya karar verilmiştir. 	
+•	Uygulamanın tüm renkleri const file’a aktarılmış ve clear code sağlanmıştır.
+•	Sprint3 için ekisklerin listesi çıkarılmıştır.
