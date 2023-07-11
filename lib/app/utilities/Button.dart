@@ -9,7 +9,7 @@ Widget DynamicButton(
   double Fontsize,
   double Rad,
 ) {
-  // R,L,B,T - Renk - Text - TextSize - Radius - Shadow
+  // R,L,B,T - Renk - Text - TextSize - Radius - Shadow - onpressed
   return GestureDetector(
     onTap: () => print("Basıldı"),
     child: Container(
