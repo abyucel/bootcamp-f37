@@ -20,7 +20,7 @@ class AppColors {
   static const Color girisFont = Color(0xFF276DF0);
 
   //Homepage
-
+  static const Color anarenk = Color(0xFF3D8BD1);
   static const Color yildizFont = Color(0xFFFFF500);
 
   // Arama Sayfası
