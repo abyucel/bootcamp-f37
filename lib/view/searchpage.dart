@@ -14,7 +14,14 @@ List<double> newList = [4, 4.5, 3.5, 5];
 
 class _SearchPageState extends State<SearchPage> {
   int selectedButtonIndex = 0;
-  int buttonIndex = 0; // Seçili düğmenin dizinini takip edecek değişken
+  int buttonIndex = 0;
+  bool _isPopupVisible = false;
+
+  void togglePopupVisibility() {
+    setState(() {
+      _isPopupVisible = !_isPopupVisible;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,8 +91,8 @@ class _SearchPageState extends State<SearchPage> {
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
                             borderSide: const BorderSide(
-                              color: AppColors.anaRenk, // Kenarlık rengi
-                              width: 3.0, // Kenarlık genişliği
+                              color: AppColors.anaRenk,
+                              width: 3.0,
                             ),
                           ),
                         ),
@@ -96,7 +103,7 @@ class _SearchPageState extends State<SearchPage> {
                     ),
                     IconButton(
                       onPressed: () {
-                        // Filtreleme butonuna tıklanınca yapılacak işlemler
+                        showPopup(context);
                       },
                       icon: const Icon(CupertinoIcons.list_bullet),
                       iconSize: 35,
@@ -122,14 +129,13 @@ class _SearchPageState extends State<SearchPage> {
             ),
             SizedBox(
               height: 280,
-              // Yüksekliği isteğinize göre ayarlayabilirsiniz
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: ratingList.length, // Öğe sayısı
+                itemCount: ratingList.length,
                 itemBuilder: (BuildContext context, int index) {
-                  String buttonText = ''; // Boş bir metin tanımlayın
+                  String buttonText = '';
                   double rating = ratingList[index];
-                  double newrating = newList[index]; // İkon verisini tanımlayın
+                  double newrating = newList[index];
                   switch (index) {
                     case 0:
                       buttonText = 'Miracle Eco Otel';
@@ -150,7 +156,6 @@ class _SearchPageState extends State<SearchPage> {
                     padding: const EdgeInsets.fromLTRB(1.9, 1.9, 15.0, 1.9),
                     child: Container(
                       width: 230,
-                      // Genişliği isteğinize göre ayarlayabilirsiniz
                       decoration: BoxDecoration(
                         boxShadow: const [
                           BoxShadow(
@@ -162,7 +167,6 @@ class _SearchPageState extends State<SearchPage> {
                         borderRadius: BorderRadius.circular(30),
                         color: AppColors.koyuGri,
                       ),
-
                       child: Stack(
                         children: [
                           Container(
@@ -264,14 +268,12 @@ class _SearchPageState extends State<SearchPage> {
               height: 10,
             ),
             SizedBox(
-              height: 55, // Yüksekliği isteğinize göre ayarlayabilirsiniz
+              height: 55,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: 3, // Öğe sayısı
                   itemBuilder: (BuildContext context, int index) {
-                    String buttonText = ''; // Boş bir metin tanımlayın
-
-                    // index değerine göre farklı metinleri belirleyin
+                    String buttonText = '';
                     switch (index) {
                       case 0:
                         buttonText = 'Yayla Turizmi';
@@ -286,8 +288,7 @@ class _SearchPageState extends State<SearchPage> {
                     return Padding(
                       padding: const EdgeInsets.all(10),
                       child: Container(
-                        width:
-                            150, // Genişliği isteğinize göre ayarlayabilirsiniz
+                        width: 150,
                         decoration: BoxDecoration(
                           boxShadow: const [
                             BoxShadow(
@@ -399,8 +400,7 @@ class _SearchPageState extends State<SearchPage> {
                   )
                 : selectedButtonIndex == 1
                     ? SizedBox(
-                        height:
-                            130, // Yüksekliği isteğinize göre ayarlayabilirsiniz
+                        height: 130,
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: 4, // Öğe sayısı
@@ -460,7 +460,7 @@ class _SearchPageState extends State<SearchPage> {
                                                 ],
                                               ),
                                             ]),
-                                      ), // İçerik olmadığı için boş SizedBox ekledik
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -471,8 +471,7 @@ class _SearchPageState extends State<SearchPage> {
                       )
                     : selectedButtonIndex == 2
                         ? SizedBox(
-                            height:
-                                130, // Yüksekliği isteğinize göre ayarlayabilirsiniz
+                            height: 130,
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
                               itemCount: 4, // Öğe sayısı
@@ -546,33 +545,173 @@ class _SearchPageState extends State<SearchPage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: buttonIndex,
-        onTap: (index) {
-          setState(() {
-            buttonIndex = index;
-          });
-        },
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            backgroundColor: AppColors.anaRenk,
-            label: '',
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              backgroundColor: AppColors.anaRenk,
-              label: ''),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              backgroundColor: AppColors.anaRenk,
-              label: ''),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.notifications),
-              backgroundColor: AppColors.anaRenk,
-              label: ''),
-        ],
-      ),
+    );
+  }
+
+  void showPopup(BuildContext context) {
+    double minValue = 3000;
+    double maxValue = 30000;
+    String? odaSayisi;
+    String? ecoOrani;
+
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setState) {
+            return Container(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(60.0),
+                ),
+              ),
+              padding: const EdgeInsets.all(18.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 5,
+                    width: 20,
+                  ),
+                  const Text(
+                    'Fiyat Aralığı:',
+                    style: TextStyle(
+                      fontFamily: 'RobotoBOLD',
+                      color: AppColors.anaRenk,
+                      fontSize: 25.0,
+                    ),
+                  ),
+                  const SizedBox(height: 15.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Min: ${minValue.toStringAsFixed(2)}'),
+                      Text('Max: ${maxValue.toStringAsFixed(2)}'),
+                    ],
+                  ),
+                  const SizedBox(height: 10.0),
+                  RangeSlider(
+                    min: 3000,
+                    max: 30000,
+                    divisions: 10,
+                    values: RangeValues(minValue, maxValue),
+                    onChanged: (values) {
+                      setState(() {
+                        minValue = values.start;
+                        maxValue = values.end;
+                      });
+                    },
+                  ),
+                  const SizedBox(height: 16.0),
+                  const Text(
+                    'Odalar:',
+                    style: TextStyle(
+                      fontFamily: 'RobotoRegular',
+                      color: AppColors.anaRenk,
+                      fontSize: 25.0,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        CupertinoIcons.house_fill,
+                        size: 25,
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      const Text(
+                        'Oda Sayısı',
+                        style: TextStyle(
+                          fontFamily: 'RobotoRegular',
+                          color: AppColors.siyah,
+                          fontSize: 20.0,
+                        ),
+                      ),
+                      const Spacer(),
+                      DropdownButton(
+                        dropdownColor: AppColors.koyuGri,
+                        underline: Container(
+                          height: 2,
+                          color: Colors.grey,
+                        ),
+                        value: odaSayisi,
+                        items: ["1", "2", "3", "4", "5", "6"]
+                            .map((label) => DropdownMenuItem(
+                                  child: Text(label),
+                                  value: label,
+                                ))
+                            .toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            odaSayisi = value;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        CupertinoIcons.arrow_3_trianglepath,
+                        color: AppColors.agacLogo,
+                        size: 25,
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      const Text(
+                        'Eco oranı',
+                        style: TextStyle(
+                          fontFamily: 'RobotoRegular',
+                          color: AppColors.siyah,
+                          fontSize: 20.0,
+                        ),
+                      ),
+                      const Spacer(),
+                      DropdownButton(
+                        dropdownColor: AppColors.koyuGri,
+                        underline: Container(
+                          height: 2,
+                          color: Colors.grey,
+                        ),
+                        value: ecoOrani,
+                        items:
+                            ["1.0 - 2.0", "2.0 - 3.0", "3.0 - 4.0", "4.0 - 5.0"]
+                                .map((label) => DropdownMenuItem(
+                                      child: Text(label),
+                                      value: label,
+                                    ))
+                                .toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            ecoOrani = value;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: const Text('Filtreyi Uygula'),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
     );
   }
 }

@@ -16,6 +16,8 @@ dependencies:
   firebase_core: ^2.13.1
   firebase_auth: ^4.6.2
   flutter_riverpod: ^2.3.6
+  google_nav_bar: ^5.0.6
+  line_icons: ^2.0.1
   flutter_screenutil: ^5.8.4
 
 dev_dependencies:

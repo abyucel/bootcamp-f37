@@ -1,3 +1,4 @@
+import 'package:ekotel/kayitol.dart';
 import 'package:flutter/material.dart';
 import 'package:ekotel/constants/theme.dart';
 
@@ -12,12 +13,11 @@ class _GirisSayfasiState extends State<GirisSayfasi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-        child: Center(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: Column(children: <Widget>[
             Image.asset('assets/resimler/logo.png'),
-            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
@@ -41,7 +41,12 @@ class _GirisSayfasiState extends State<GirisSayfasi> {
             ),
             const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const KayitSayfasi()),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.anaRenk,
                 minimumSize: const Size(

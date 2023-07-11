@@ -1,4 +1,6 @@
+import 'package:ekotel/app/constants/language.dart';
 import 'package:ekotel/app/constants/theme.dart';
+import 'package:ekotel/view/kullanicibilgileri.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -8,8 +10,6 @@ class ProfilSayfasi extends StatefulWidget {
   @override
   State<ProfilSayfasi> createState() => _ProfilSayfasiState();
 }
-
-int buttonIndex = 0;
 
 class _ProfilSayfasiState extends State<ProfilSayfasi> {
   @override
@@ -117,7 +117,13 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
                   height: 10,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => kullaniciBilgileriSayfasi()),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     minimumSize: const Size(
@@ -140,7 +146,7 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
                       ),
                       Spacer(),
                       Text(
-                        "Kullanıcı Bilgileri",
+                        "Profili Düzenle",
                         style: TextStyle(
                           fontSize: 20,
                           fontFamily: 'RobotoLight',
@@ -210,7 +216,7 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
                     backgroundColor: Colors.white,
                     minimumSize: const Size(
                         100, 30), // Düğmenin minimum genişliği ve yüksekliği
-                    padding: const EdgeInsets.all(10), // İçerik padding'i
+                    padding: const EdgeInsets.all(0), // İçerik padding'i
                     shape: RoundedRectangleBorder(
                       borderRadius:
                           BorderRadius.circular(10), // Düğme köşe yuvarlama
@@ -218,16 +224,21 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
                     elevation: 4,
                     shadowColor: AppColors.anaRenk,
                   ),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const SizedBox(
+                        width: 12,
+                      ),
+                      const Icon(
                         CupertinoIcons.globe,
                         color: AppColors.siyah,
                         size: 30,
                       ),
-                      Spacer(),
-                      Text(
+                      const SizedBox(
+                        width: 150,
+                      ),
+                      const Text(
                         "Dil",
                         style: TextStyle(
                           fontSize: 20,
@@ -236,11 +247,32 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
                           fontWeight: FontWeight.w200,
                         ),
                       ),
-                      Spacer(),
-                      Icon(
-                        CupertinoIcons.right_chevron,
-                        color: AppColors.siyah,
-                        size: 30,
+                      const Spacer(),
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: DropdownButton<Language>(
+                          underline: Container(
+                            height: 1,
+                          ),
+                          items: Language.languageList()
+                              .map<DropdownMenuItem<Language>>((e) =>
+                                  DropdownMenuItem<Language>(
+                                    value: e,
+                                    child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          Text(
+                                            e.flag,
+                                            style:
+                                                const TextStyle(fontSize: 10),
+                                          ),
+                                          Text(e.name)
+                                        ]),
+                                  ))
+                              .toList(),
+                          onChanged: (Language? language) {},
+                        ),
                       ),
                     ],
                   ),
@@ -281,33 +313,6 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
             ),
           ]),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: buttonIndex,
-        onTap: (index) {
-          setState(() {
-            buttonIndex = index;
-          });
-        },
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            backgroundColor: AppColors.anaRenk,
-            label: '',
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              backgroundColor: AppColors.anaRenk,
-              label: ''),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              backgroundColor: AppColors.anaRenk,
-              label: ''),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.notifications),
-              backgroundColor: AppColors.anaRenk,
-              label: ''),
-        ],
       ),
     );
   }
