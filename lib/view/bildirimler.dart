@@ -1,192 +1,166 @@
 import 'package:flutter/material.dart';
 import '../app/constants/theme.dart';
 
-class BildirimSayfasi extends StatefulWidget {
-  const BildirimSayfasi({super.key});
+class BildirimSayfasi extends StatelessWidget {
+  const BildirimSayfasi({Key? key});
 
-  @override
-  State<BildirimSayfasi> createState() => _BildirimSayfasiState();
-}
-
-class _BildirimSayfasiState extends State<BildirimSayfasi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(children: <Widget>[
-          const Padding(
-            padding: EdgeInsets.fromLTRB(30, 30, 20, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      appBar: null,
+      body: listView(),
+    );
+  }
+
+  Widget listView() {
+    return Column(
+      children: [
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      'Bildirimler,',
-                      style: TextStyle(
-                        fontFamily: 'RobotoRegular',
-                        fontSize: 25,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Text(
-                      'Bugün 3 Yeni Bildirim',
-                      style: TextStyle(
-                        fontFamily: 'RobotoRegular',
-                        fontSize: 16,
-                        color: AppColors.aramaLogosu,
-                      ),
-                    ),
-                  ],
-                ),
-                CircleAvatar(
-                  radius: 35,
-                  backgroundImage: AssetImage('assets/resimler/kullanıcı.png'),
-                  backgroundColor: AppColors.anaRenk,
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const CircleAvatar(
-                  radius: 25,
-                  backgroundImage: AssetImage('assets/resimler/otel.jpg'),
-                  backgroundColor: AppColors.anaRenk,
-                ),
-                const SizedBox(
-                  width: 12,
-                ),
-                const Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(right: 150, top: 5),
-                      child: Text(
-                        "Miracle Eco Otel",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontFamily: 'RobotoBOLD'),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      'Yeni sezona özel %10 indirim fırsatı',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontFamily: 'RobotoRegular'),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 200, top: 5),
-                      child: Text(
-                        '23-01-2023',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12,
-                            fontFamily: 'RobotoRegular'),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                  child: IconButton(
-                    icon: const Icon(Icons.arrow_forward),
-                    onPressed: () {},
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const Row(
-            children: [
-              SizedBox(
-                height: 80,
-                width: 100,
-                child: Stack(children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: CircleAvatar(
-                      radius: 25,
-                      backgroundImage: AssetImage('assets/resimler/otel.jpg'),
-                      backgroundColor: AppColors.anaRenk,
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 10,
-                    left: 25,
-                    child: CircleAvatar(
-                      radius: 25,
-                      backgroundImage:
-                          AssetImage('assets/resimler/kullanıcı.png'),
-                      backgroundColor: AppColors.anaRenk,
-                    ),
-                  )
-                ]),
-              ),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(right: 140, top: 5),
-                    child: Text(
-                      "Miracle Eco Otel",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontFamily: 'RobotoBOLD'),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    'Yeni sezona özel %10 indirim fırsatı',
+                Padding(
+                  padding: EdgeInsets.only(left: 15),
+                  child: Text(
+                    'Bildirimler,',
                     style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontFamily: 'RobotoRegular'),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 200, top: 5),
-                    child: Text(
-                      '23-01-2023',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 12,
-                          fontFamily: 'RobotoRegular'),
+                      fontFamily: 'RobotoRegular',
+                      fontSize: 25,
+                      color: Colors.black,
                     ),
                   ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 15.0),
+                  child: Text(
+                    'Bugün 3 Yeni Bildirim',
+                    style: TextStyle(
+                      fontFamily: 'RobotoRegular',
+                      fontSize: 16,
+                      color: AppColors.aramaLogosu,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: CircleAvatar(
+                radius: 35,
+                backgroundImage: AssetImage('assets/resimler/kullanıcı.png'),
+                backgroundColor: AppColors.anaRenk,
+              ),
+            ),
+          ],
+        ),
+        Expanded(
+          child: ListView.separated(
+            itemBuilder: (context, index) {
+              return listViewItem(index);
+            },
+            separatorBuilder: (context, index) {
+              return const Divider(height: 0);
+            },
+            itemCount: 10,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget listViewItem(int index) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 13, vertical: 10),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          prefixIcon(),
+          Expanded(
+            child: Container(
+              margin: const EdgeInsets.only(left: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  message(index),
+                  timeandDate(index),
+                  button(index),
                 ],
               ),
-              SizedBox(
-                width: 2,
-              ),
-              Expanded(
-                child: IconButton(
-                  icon: Icon(Icons.arrow_forward),
-                  onPressed: null,
-                ),
-              ),
-            ],
+            ),
           ),
-        ]),
+        ],
+      ),
+    );
+  }
+
+  Widget prefixIcon() {
+    return Container(
+      child: const Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            radius: 30,
+            backgroundImage: AssetImage('assets/resimler/otel.jpg'),
+            backgroundColor: AppColors.anaRenk,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget message(int index) {
+    double textSize = 14;
+    return RichText(
+      maxLines: 3,
+      overflow: TextOverflow.ellipsis,
+      text: TextSpan(
+        text: 'Miracle Eco Otel',
+        style: TextStyle(
+          fontSize: textSize,
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+        ),
+        children: const [
+          TextSpan(
+            text: '   İlk tatilinize özel %10 indirim',
+            style: TextStyle(fontWeight: FontWeight.w400),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget timeandDate(int index) {
+    return Container(
+      margin: const EdgeInsets.only(top: 5),
+      child: const Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            '23-01-2023',
+            style: TextStyle(
+              fontSize: 12,
+            ),
+          ),
+          Text(
+            '07:10',
+            style: TextStyle(
+              fontSize: 12,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget button(int index) {
+    return Container(
+      margin: const EdgeInsets.only(top: 5, left: 280),
+      child: IconButton(
+        icon: const Icon(Icons.arrow_forward),
+        onPressed: () {},
       ),
     );
   }
