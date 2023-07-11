@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ekotel/constants/theme.dart';
-import 'package:ekotel/girisSayfasi.dart';
-import 'package:ekotel/kayitol.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 class YorumlarSayfasi extends StatefulWidget {
   const YorumlarSayfasi({Key? key}) : super(key: key);
 
   @override
-  _YorumlarSayfasiState createState() => _YorumlarSayfasiState();
+  State<YorumlarSayfasi> createState() => _YorumlarSayfasiState();
 }
 
 class _YorumlarSayfasiState extends State<YorumlarSayfasi> {
@@ -33,7 +30,7 @@ class _YorumlarSayfasiState extends State<YorumlarSayfasi> {
         children: [
           Positioned.fill(
             child: SingleChildScrollView(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               child: Image.asset(
                 'assets/resimler/dalga.png',
                 fit: BoxFit.cover,
@@ -49,7 +46,7 @@ class _YorumlarSayfasiState extends State<YorumlarSayfasi> {
                 onTap: () {
                   // Geri dönme işlemi burada gerçekleştirilecek
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.arrow_back_ios_new,
                   color: Colors.white,
                 ),
@@ -122,7 +119,7 @@ class _YorumlarSayfasiState extends State<YorumlarSayfasi> {
                       );
                     },
                     itemBuilder: (BuildContext context, int index) {
-                      return YorumWidget(
+                      return const YorumWidget(
                         kullaniciAdi: 'Ahmet Özerk',
                         tarih: '20 Haziran 2023',
                         yildiz: 4,
@@ -192,6 +189,7 @@ class YorumWidget extends StatelessWidget {
   final String yorum;
 
   const YorumWidget({
+    super.key,
     required this.kullaniciAdi,
     required this.tarih,
     required this.yildiz,
@@ -216,7 +214,7 @@ class YorumWidget extends StatelessWidget {
                   children: [
                     Row(
                       children: <Widget>[
-                        CircleAvatar(
+                        const CircleAvatar(
                           child: Icon(Icons.person),
                         ),
                         SizedBox(width: 10.w),

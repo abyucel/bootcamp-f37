@@ -1,4 +1,4 @@
-import 'package:ekotel/kayitol.dart';
+import 'package:ekotel/view/kayitol.dart';
 import 'package:flutter/material.dart';
 import 'package:ekotel/constants/theme.dart';
 
@@ -6,7 +6,7 @@ class GirisSayfasi extends StatefulWidget {
   const GirisSayfasi({Key? key}) : super(key: key);
 
   @override
-  _GirisSayfasiState createState() => _GirisSayfasiState();
+  State<GirisSayfasi> createState() => _GirisSayfasiState();
 }
 
 class _GirisSayfasiState extends State<GirisSayfasi> {

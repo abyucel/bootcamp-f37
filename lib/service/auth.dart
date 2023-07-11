@@ -3,11 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../common/result.dart';
 
-class Auth {
+class AuthService {
   final FirebaseAuth auth;
   Stream<User?> get authStateChangeStream => auth.authStateChanges();
 
-  Auth(this.auth);
+  AuthService(this.auth);
 
   Future<Result<(), String>> login(String email, String password) async {
     try {
@@ -50,8 +50,8 @@ class Auth {
   }
 }
 
-final authProvider = Provider<Auth>((ref) {
-  return Auth(FirebaseAuth.instance);
+final authProvider = Provider<AuthService>((ref) {
+  return AuthService(FirebaseAuth.instance);
 });
 
 final authStateProvider = StreamProvider<User?>((ref) {

@@ -21,6 +21,8 @@ Widget DynamicButton(
             blurRadius: 5,
             offset: Offset(0, 4)),
       ], borderRadius: BorderRadius.circular(Rad), color: C),
+      width: double.infinity,
+      height: Height,
       // R,L,B,T - Renk - Text - TextSize - Radius - Shadow
       child: Center(
         child: Text(
@@ -28,8 +30,6 @@ Widget DynamicButton(
           style: TextStyle(color: Colors.white, fontSize: Fontsize),
         ),
       ),
-      width: double.infinity,
-      height: Height,
     ),
   );
 }

@@ -5,7 +5,7 @@ class KayitSayfasi extends StatefulWidget {
   const KayitSayfasi({Key? key}) : super(key: key);
 
   @override
-  _KayitSayfasiState createState() => _KayitSayfasiState();
+  State<KayitSayfasi> createState() => _KayitSayfasiState();
 }
 
 class _KayitSayfasiState extends State<KayitSayfasi> {
@@ -35,7 +35,7 @@ class _KayitSayfasiState extends State<KayitSayfasi> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: <Widget>[
-                      Container(
+                      SizedBox(
                         width: 312,
                         height: 65,
                         child: Stack(
@@ -57,7 +57,7 @@ class _KayitSayfasiState extends State<KayitSayfasi> {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      Container(
+                      SizedBox(
                         width: 312,
                         height: 65,
                         child: Stack(
@@ -79,7 +79,7 @@ class _KayitSayfasiState extends State<KayitSayfasi> {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      Container(
+                      SizedBox(
                         width: 312,
                         height: 65,
                         child: Stack(
@@ -101,7 +101,7 @@ class _KayitSayfasiState extends State<KayitSayfasi> {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      Container(
+                      SizedBox(
                         width: 312,
                         height: 65,
                         child: Stack(
@@ -124,7 +124,7 @@ class _KayitSayfasiState extends State<KayitSayfasi> {
                         ),
                       ),
                       const SizedBox(height: 30),
-                      Container(
+                      SizedBox(
                         width: 312,
                         height: 65,
                         child: ElevatedButton(
