@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "128566131382",
+    "project_id": "bootcamp-f37-app",
+    "storage_bucket": "bootcamp-f37-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128566131382:android:f913d61f7c163784d60417",
+        "android_client_info": {
+          "package_name": "oua.bootcamp.f37.ekotel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "128566131382-ig8bubvqq08fjn54vldlm7h3j15ehuag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARFYBXZFCgEApjx-6oVbFhcc7kawpGQhU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "128566131382-ig8bubvqq08fjn54vldlm7h3j15ehuag.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "128566131382-eg8otgimgh0h67lug1sedrgbu7njd1d2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bootcampF37"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128566131382:android:2f1c0af931a7ef94d60417",
+        "android_client_info": {
+          "package_name": "oua.bootcamp.f37.ekotel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "128566131382-ig8bubvqq08fjn54vldlm7h3j15ehuag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARFYBXZFCgEApjx-6oVbFhcc7kawpGQhU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "128566131382-ig8bubvqq08fjn54vldlm7h3j15ehuag.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "128566131382-eg8otgimgh0h67lug1sedrgbu7njd1d2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bootcampF37"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
