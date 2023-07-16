@@ -1,10 +1,10 @@
 import 'package:accordion/accordion.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ekotel/view/main_page.dart';
 import 'package:flutter/material.dart';
 
 import '../main.dart';
 import '../util.dart';
+import 'main_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);

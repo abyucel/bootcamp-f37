@@ -1,7 +1,7 @@
-import 'package:ekotel/view/auth_page.dart';
 import 'package:flutter/material.dart';
 
 import 'main.dart';
+import 'view/auth_page.dart';
 import 'view/main_page.dart';
 import 'view/profile_page.dart';
 import 'view/search_page.dart';
