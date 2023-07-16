@@ -185,7 +185,7 @@ class _HotelPageState extends State<HotelPage> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         iconButton(
-                                          buttonText: "Geri Dönüşüm",
+                                          buttonText: "Geri dönüşüm",
                                           icon: Icons.recycling,
                                         ),
                                         iconButton(

@@ -25,7 +25,21 @@ class _RegisterPageState extends State<RegisterPage> {
     setState(() {
       isEnabled = false;
     });
-    var result = await authService.register(_emailCtl.text, _passwordCtl.text);
+    final firstName = _firstNameCtl.text.trim();
+    final lastName = _lastNameCtl.text.trim();
+    final email = _emailCtl.text.trim();
+    final password = _emailCtl.text.trim();
+    if (firstName.isEmpty ||
+        lastName.isEmpty ||
+        email.isEmpty ||
+        password.isEmpty) {
+      setState(() {
+        isEnabled = true;
+      });
+      notifySnackbar(context, "Lütfen bütün alanları doldurun.");
+      return;
+    }
+    var result = await authService.register(email, password);
     if (result.isErr) {
       setState(() {
         _passwordCtl.text = "";
@@ -38,9 +52,9 @@ class _RegisterPageState extends State<RegisterPage> {
     final user = authService.auth.currentUser!;
     final userData = UserData(
       id: user.uid,
-      firstName: _firstNameCtl.text,
-      lastName: _lastNameCtl.text,
-      email: _emailCtl.text,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
       createdAt: DateTime.now(),
     );
     try {
@@ -58,7 +72,7 @@ class _RegisterPageState extends State<RegisterPage> {
       }
       return;
     }
-    result = await authService.login(_emailCtl.text, _passwordCtl.text);
+    result = await authService.login(email, password);
     if (result.isErr) {
       setState(() {
         _passwordCtl.text = "";

@@ -19,7 +19,6 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   authService = AuthService(FirebaseAuth.instance);
-  await authService.logout();
   runApp(const MyApp());
 }
 

@@ -22,6 +22,15 @@ class _LoginPageState extends State<LoginPage> {
     setState(() {
       isEnabled = false;
     });
+    final email = _emailCtl.text.trim();
+    final password = _passwordCtl.text.trim();
+    if (email.isEmpty || password.isEmpty) {
+      setState(() {
+        isEnabled = true;
+      });
+      notifySnackbar(context, "Lütfen bütün alanları doldurun.");
+      return;
+    }
     final result = await authService.login(_emailCtl.text, _passwordCtl.text);
     if (result.isErr) {
       setState(() {
