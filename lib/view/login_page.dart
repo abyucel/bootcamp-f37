@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../main.dart';
 import '../util.dart';
+import 'main_page.dart';
 import 'register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -32,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
     if (context.mounted) {
       navigate(
         context,
-        const TestPage("MainPage"),
+        const MainPage(),
         replace: true,
       );
     }

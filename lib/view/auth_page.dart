@@ -1,8 +1,8 @@
-import 'package:ekotel/view/main_page.dart';
 import 'package:flutter/material.dart';
 
 import '../util.dart';
 import 'login_page.dart';
+import 'main_page.dart';
 import 'register_page.dart';
 
 class AuthPage extends StatelessWidget {

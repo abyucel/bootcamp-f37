@@ -181,11 +181,14 @@ TextField customTextField({
   );
 }
 
-Widget ratingBar(int rating) {
+Widget ratingBar(
+  int rating, {
+  MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+}) {
   return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
+    mainAxisAlignment: mainAxisAlignment,
     children: List.generate(
-      rating,
+      rating < 1 || rating > 5 ? 5 : rating,
       (i) => const Icon(
         Icons.star,
         color: Colors.amber,

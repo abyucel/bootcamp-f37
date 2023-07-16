@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../common/user.dart';
 import '../main.dart';
 import '../util.dart';
+import 'main_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -65,7 +66,7 @@ class _RegisterPageState extends State<RegisterPage> {
     if (context.mounted) {
       navigate(
         context,
-        const TestPage("MainPage"),
+        const MainPage(),
         replace: true,
       );
     }
