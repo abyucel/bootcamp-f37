@@ -1,4 +1,4 @@
-![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/2314952e-c5fe-4538-b0c0-b5c3ea51e093)# OUA Bootcamp, F-37
+## OUA Bootcamp, F-37
 
 Oyun ve Uygulama Akademisi Bootcamp, Takım F-37'nin projesi.
 
