@@ -6,7 +6,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../util.dart';
-import 'profile_page.dart';
 import 'search_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -24,48 +23,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.blueAccent,
-        unselectedItemColor: Colors.white,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, size: 32),
-            label: "Ana sayfa",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search, size: 32),
-            label: "Arama",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person, size: 32),
-            label: "Profil",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications, size: 32),
-            label: "Bildirimler",
-          ),
-        ],
-        currentIndex: bottomBarPage,
-        selectedItemColor: Colors.amber,
-        onTap: (i) {
-          if (i == bottomBarPage) return;
-          final routes = [
-            const MainPage(),
-            const SearchPage(),
-            const ProfilePage(),
-            const TestPage("NotificationPage"),
-          ];
-          navigateWithSlide(
-            context,
-            routes[i],
-            SlideDirection.up,
-            replace: true,
-          );
-        },
-      ),
+      bottomNavigationBar: bottomNavbar(context, bottomBarPage),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,

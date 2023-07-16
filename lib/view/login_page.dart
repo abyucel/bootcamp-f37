@@ -84,11 +84,13 @@ class _LoginPageState extends State<LoginPage> {
                       controller: _emailCtl,
                       enabled: isEnabled,
                       hintText: "E-posta",
+                      icon: Icons.email,
                     ),
                     customTextField(
                       controller: _passwordCtl,
                       enabled: isEnabled,
                       hintText: "Şifre",
+                      icon: Icons.key,
                       obscureText: true,
                     ),
                     roundedTextButton(

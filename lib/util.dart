@@ -1,4 +1,10 @@
+import 'package:ekotel/view/auth_page.dart';
 import 'package:flutter/material.dart';
+
+import 'main.dart';
+import 'view/main_page.dart';
+import 'view/profile_page.dart';
+import 'view/search_page.dart';
 
 enum SlideDirection { left, right, up, down }
 
@@ -18,8 +24,33 @@ extension OffsetExtension on SlideDirection {
 }
 
 void navigateWithSlide(
-    BuildContext context, Widget page, SlideDirection direction,
-    {bool replace = false}) {
+  BuildContext context,
+  Widget page,
+  SlideDirection direction, {
+  bool replace = false,
+  bool clearHistory = false,
+}) {
+  if (clearHistory) {
+    Navigator.pushAndRemoveUntil(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (cx, a1, a2) => page,
+        transitionsBuilder: (cx, a1, a2, cd) {
+          var begin = direction.offset;
+          const end = Offset.zero;
+          const cv = Curves.ease;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: cv));
+          return SlideTransition(
+            position: a1.drive(tween),
+            child: cd,
+          );
+        },
+      ),
+      (route) => false,
+    );
+    return;
+  }
   Function method = Navigator.push;
   if (replace) method = Navigator.pushReplacement;
   method(
@@ -40,7 +71,20 @@ void navigateWithSlide(
   );
 }
 
-void navigate(BuildContext context, Widget page, {bool replace = false}) {
+void navigate(
+  BuildContext context,
+  Widget page, {
+  bool replace = false,
+  bool clearHistory = false,
+}) {
+  if (clearHistory) {
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => page),
+      (route) => false,
+    );
+    return;
+  }
   Function method = Navigator.push;
   if (replace) method = Navigator.pushReplacement;
   method(context, MaterialPageRoute(builder: (context) => page));
@@ -69,6 +113,32 @@ class HeaderWavePainter extends CustomPainter {
         size.height / 8,
       )
       ..relativeLineTo(0, -size.height / 8)
+      ..close();
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
+}
+
+class HeaderProfilePainter extends CustomPainter {
+  HeaderProfilePainter({required this.color});
+
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint()..color = color;
+    Path path = Path()
+      ..relativeLineTo(0, size.height / 4)
+      ..quadraticBezierTo(
+        size.width / 2,
+        size.height / 2,
+        size.width,
+        size.height / 4,
+      )
+      ..relativeLineTo(0, -size.height / 4)
       ..close();
 
     canvas.drawPath(path, paint);
@@ -112,6 +182,7 @@ TextButton roundedTextButton(
   required String buttonText,
   Color foregroundColor = Colors.blue,
   Color textColor = Colors.grey,
+  double fontSize = 16.0,
 }) {
   return TextButton(
     onPressed: onPressed,
@@ -126,7 +197,7 @@ TextButton roundedTextButton(
       buttonText,
       style: TextStyle(
         color: textColor,
-        fontSize: 16.0,
+        fontSize: fontSize,
       ),
     ),
   );
@@ -143,6 +214,7 @@ TextField customTextField({
   Color enabledBorderColor = Colors.grey,
   Color disabledBorderColor = const Color.fromARGB(255, 64, 64, 64),
   Color focusedBorderColor = Colors.blue,
+  IconData icon = Icons.error,
 }) {
   return TextField(
     enabled: enabled,
@@ -153,6 +225,7 @@ TextField customTextField({
       color: textColor,
     ),
     decoration: InputDecoration(
+      prefixIcon: Icon(icon),
       hintText: hintText,
       filled: filled,
       fillColor: fillColor,
@@ -199,6 +272,64 @@ Widget ratingBar(
 
 void notifySnackbar(BuildContext context, String message) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+}
+
+BottomNavigationBar bottomNavbar(BuildContext context, int bottomBarPage) {
+  return BottomNavigationBar(
+    type: BottomNavigationBarType.fixed,
+    backgroundColor: Colors.blueAccent,
+    unselectedItemColor: Colors.white,
+    showSelectedLabels: false,
+    showUnselectedLabels: false,
+    items: const <BottomNavigationBarItem>[
+      BottomNavigationBarItem(
+        icon: Icon(Icons.home, size: 32),
+        label: "Ana sayfa",
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.search, size: 32),
+        label: "Arama",
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.person, size: 32),
+        label: "Profil",
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.notifications, size: 32),
+        label: "Bildirimler",
+      ),
+    ],
+    currentIndex: bottomBarPage,
+    selectedItemColor: Colors.amber,
+    onTap: (i) {
+      if (i == bottomBarPage) return;
+      final routes = [
+        const MainPage(),
+        const SearchPage(),
+        const ProfilePage(),
+        const TestPage("NotificationPage"),
+      ];
+      if (i == 3) {
+        notifySnackbar(context, "Bu özellik henüz eklenmedi.");
+        return;
+      }
+      if (i > 1 && authService.auth.currentUser == null) {
+        navigateWithSlide(
+          context,
+          const AuthPage(),
+          SlideDirection.up,
+          clearHistory: true,
+        );
+        return;
+      }
+      navigateWithSlide(
+        context,
+        routes[i],
+        SlideDirection.up,
+        replace: true,
+      );
+    },
+  );
 }
 
 class TestPage extends StatelessWidget {

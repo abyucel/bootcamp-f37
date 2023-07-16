@@ -1,8 +1,10 @@
+import 'package:accordion/accordion.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ekotel/view/main_page.dart';
 import 'package:flutter/material.dart';
 
+import '../main.dart';
 import '../util.dart';
-import 'main_page.dart';
-import 'search_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -18,47 +20,166 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.blueAccent,
-        unselectedItemColor: Colors.white,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, size: 32),
-            label: "Ana sayfa",
+      bottomNavigationBar: bottomNavbar(context, bottomBarPage),
+      body: Stack(
+        fit: StackFit.passthrough,
+        children: [
+          CustomPaint(
+            painter: HeaderProfilePainter(color: Colors.blue),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search, size: 32),
-            label: "Arama",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person, size: 32),
-            label: "Profil",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications, size: 32),
-            label: "Bildirimler",
+          Container(
+            margin: EdgeInsets.only(top: MediaQuery.of(context).size.width / 8),
+            child: StreamBuilder(
+              stream: FirebaseFirestore.instance
+                  .collection("users")
+                  .doc(authService.auth.currentUser!.uid)
+                  .snapshots(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+                final data = snapshot.data!;
+                return Column(
+                  children: [
+                    Center(
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: MediaQuery.of(context).size.width / 4 + 4,
+                        child: CircleAvatar(
+                          radius: MediaQuery.of(context).size.width / 4,
+                          backgroundImage: const AssetImage(
+                            "assets/placeholder.jpg",
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height / 16,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Center(
+                            child: Text(
+                              "${data["first_name"]} ${data["last_name"]}",
+                              style: const TextStyle(
+                                fontSize: 32.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Center(
+                            child: Text(
+                              "${data["email"]}",
+                              style: const TextStyle(
+                                fontSize: 16.0,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.all(8.0),
+                            child: roundedTextButton(
+                              context,
+                              buttonText: "Çıkış yap",
+                              textColor: Colors.red,
+                              foregroundColor: Colors.red,
+                              fontSize: 22.0,
+                              onPressed: () async {
+                                await authService.logout();
+                                if (context.mounted) {
+                                  navigate(
+                                    context,
+                                    const MainPage(),
+                                    clearHistory: true,
+                                  );
+                                }
+                              },
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(
+                              left: 16.0,
+                              right: 16.0,
+                            ),
+                            child: Accordion(
+                              maxOpenSections: 1,
+                              headerBackgroundColorOpened: Colors.blue,
+                              headerBackgroundColor: Colors.white,
+                              rightIcon: const Icon(Icons.chevron_right),
+                              children: [
+                                AccordionSection(
+                                  leftIcon: const Icon(Icons.eco),
+                                  header: const Text(
+                                    "Geçmiş tatiller",
+                                    style: TextStyle(fontSize: 16.0),
+                                  ),
+                                  content: const Text(
+                                    "TODO",
+                                    style: TextStyle(
+                                      fontSize: 22.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                AccordionSection(
+                                  leftIcon: const Icon(Icons.person),
+                                  header: const Text(
+                                    "Kullanıcı bilgileri",
+                                    style: TextStyle(fontSize: 16.0),
+                                  ),
+                                  content: const Text(
+                                    "TODO",
+                                    style: TextStyle(
+                                      fontSize: 22.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                AccordionSection(
+                                  leftIcon: const Icon(Icons.settings),
+                                  header: const Text(
+                                    "Ayarlar",
+                                    style: TextStyle(fontSize: 16.0),
+                                  ),
+                                  content: const Text(
+                                    "TODO",
+                                    style: TextStyle(
+                                      fontSize: 22.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                AccordionSection(
+                                  leftIcon: const Icon(Icons.language),
+                                  header: const Text(
+                                    "Dil",
+                                    style: TextStyle(fontSize: 16.0),
+                                  ),
+                                  content: const Text(
+                                    "TODO",
+                                    style: TextStyle(
+                                      fontSize: 22.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
         ],
-        currentIndex: bottomBarPage,
-        selectedItemColor: Colors.amber,
-        onTap: (i) {
-          if (i == bottomBarPage) return;
-          final routes = [
-            const MainPage(),
-            const SearchPage(),
-            const ProfilePage(),
-            const TestPage("NotificationPage"),
-          ];
-          navigateWithSlide(
-            context,
-            routes[i],
-            SlideDirection.up,
-            replace: true,
-          );
-        },
       ),
     );
   }

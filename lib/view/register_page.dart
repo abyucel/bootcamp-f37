@@ -103,18 +103,21 @@ class _RegisterPageState extends State<RegisterPage> {
                   controller: _firstNameCtl,
                   enabled: isEnabled,
                   hintText: "Ad",
+                  icon: Icons.text_fields,
                 ),
                 const SizedBox(height: 16.0),
                 customTextField(
                   controller: _lastNameCtl,
                   enabled: isEnabled,
                   hintText: "Soyad",
+                  icon: Icons.text_fields,
                 ),
                 const SizedBox(height: 16.0),
                 customTextField(
                   controller: _emailCtl,
                   enabled: isEnabled,
                   hintText: "E-posta",
+                  icon: Icons.email,
                 ),
                 const SizedBox(height: 16.0),
                 customTextField(
@@ -122,6 +125,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   enabled: isEnabled,
                   hintText: "Şifre",
                   obscureText: true,
+                  icon: Icons.key,
                 ),
                 const SizedBox(height: 16.0),
                 roundedButton(
