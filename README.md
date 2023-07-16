@@ -249,3 +249,87 @@ Teknik olan Taskler:
 •	Projede custom olarak yaratılan bottom bar verimli çalışmadığı için hazır bottom bar paketleri kullanılmaya karar verilmiştir. 	
 •	Uygulamanın tüm renkleri const file’a aktarılmış ve clear code sağlanmıştır.
 •	Sprint3 için ekisklerin listesi çıkarılmıştır.
+
+
+## SPRINT 3:
+PROJE BACKLOG : https://docs.google.com/spreadsheets/d/1-t9auiCSkU0xhwKEhTpSQff-Z8Cynn-lCvCoE_f39IQ/edit?usp=sharing 
+Sprint içinde tamamlanması gereken tahmini puan: 149
+
+## DAILY SCRUM:
+
+03.07.2023: Günlük toplantı yapıldı. Geçen sprintte aldığımız puan üzerinde konuşuldu. Scrum master, son sprintin önemli olduğunu ve herkesin buna hassasiyet göstermesini istedi. Son sprintte yapacağımız işler hakkında konuşuldu, çizelge oluşturuldu ve görev atamaları yapıldı.
+
+04.07.2023: Developer Ümmü Gülsüm, sayfalar için bazı düzenlemeler yaptı. Düzenlemeler arasında her sayfada kullanılacak bir alt çubuğun eklenmesi de yer aldı. Uygulamanın sayfalarında daha fazla değişiklik yapılması kararlaştırıldı ve bu konu üzerinde görüşüldü.
+
+05.07.2023: Günlük toplantıda bir önceki gün konuşulan düzenlemelerle ilgili yapılan iyileştirmeler gösterildi.
+
+06.07.2023: Ümmü Gülsüm, profil sayfasını düzenledi ve ekip arkadaşlarından geri bildirimler aldı.
+
+07.07.2023: Günlük toplantıda Scrum Master, iletişim konusunda ekip üyelerini uyardı. İletişim eksikliği konuşuldu ve bu sprintin önemi tekrar vurgulandı.
+
+08.07.2023: Günlük toplantıda uygulamanın veritabanı bağlantısı ve backend servislerinin aktif hale getirilmesi konuşuldu.
+
+09.07.2023: Database'e aktarılacak oteller için içerik ve fotoğraf bulunma işlemleri istendi.
+
+10.07.2023: Uygulamanın ve servislerin güvenliği açısından Github üzerinden depoyu özel duruma çevirme düşünüldü.
+
+11.07.2023: Backend tarafında geliştirmeler devam ediyor. Eksikler hakkında konuşuldu ve Scrum Master son sprintin önemini hatırlattı.
+
+12.07.2023: Developer ekibinden Mert'in, kodları bilgisayarının arızalanması sonucu GitHub'a yedeklemediği ve kaybettiği bildirildi. Bu duruma hızla müdahale edildi ve farklı bir bilgisayar üzerinden kodlar yeniden yazıldı.
+
+13.07.2023: Scrum Master bir toplantı düzenledi. Toplantının konusu, backend tarafında nerede olduğumuzdu. Backend sürecinden sorumlu ekip üyesi toplantıya katılmadı ve mazeret bildirmedi. Backend süreci uzamaya başladı.
+
+14.07.2023: Uygulamada yaşanan sorunlara hızlı bir çözüm bulmak için bir toplantı yapıldı ve çözüm önerileri sunuldu.
+
+15.07.2023: Uygulamadaki soruna bir çözüm bulundu ve son düzenlemeler üzerinde konuşuldu.
+
+16.07.2023: Son düzenlemeleri yapılan uygulamanın video çekimi ve pazarlama işlemlerine başlandı.
+
+17.07.2023: Projenin tüm aşamaları tamamlandı ve sunuma hazır hale getirildi.
+
+## SPRINT REVIEW:
+
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/facd2ccd-9387-4b27-b545-1d8f5165a14e)
+
+
+Sprint 3 e girmemizin ardından projenin eksiklerini kapatmak ve test amaçlı bir çok task oluşturduk. Sprint 2 de hayal ettiğimiz gibi projenin tümünü yetiştirmek mümkün olmadı. Bundan dolayı sprint 3 zorlayıcı geçti. Uygulamanın bir çok kısmı bitmiş bulunmasına rağmen test süreçlerinde sarkmalar meydana geldi. 
+
+## Sprint Notları: 
+Teknik olmayan taskler: 
+•	Otellerin yayla turizmi,sağlık turizmi, kıyı turizmi olarak ayrıştırılması
+•	Karşılaştırma özelliklerinin listelenmesi
+•	Ekran Videosu
+•	Sunum Videosu
+•	Otellerin ECO oranının belirlenmesi(Firebase)
+
+Teknik olan taskler: 
+•	Firebase servis – UI
+•	Bottom bar
+•	Filtreleme Sayfası
+•	Otel bilgilerinin firebaseden çekilmesi
+•	Sayfaların birleştirilmesi
+•	Uyguamanın Test Edilmesi
+•	Flutter Animasyon(Opsiyonel)
+
+## Firebase özeti:
+Kullanıcı kayıt olduğunda bilgileri firebasede tutuluyor sonra bu bilgiler kullanıcı giriş yaptığında kullanılıyor. Kayıt için kullanıcı ad,soyad,e-mail ve şifre bilgileri gerekiyor. Otel bilgilerinin deposu içinde otel adı, otelin resmi, otelin tanıtım açıklaması ,id bilgisi ve otelin eko oranı ve derecesi yer alıyor. Yorumlar servisinde kullanıcı id si , otel hakkında yaptığı yorum içeriği ve otele kaç yıldız verdiği tutuluyor.
+
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/3be3d8b4-6fe7-40db-ba48-2587159afd20)
+
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/6b9ac372-b022-4045-ba73-a8695168927c)
+
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/fe003426-62db-4ff8-875d-f2617d9bae5d)
+
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/3d52edeb-37fc-406b-b705-2b22dff6b119)
+
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/c6c3fb7a-1326-4e7f-ae44-27f7bfedafd6)
+
+![image](https://github.com/abyucel/bootcamp-f37/assets/96143756/bd84f03a-3f32-4666-a4f5-0ca1cef0a0d7)
+
+
+## SPRINT RETROSPECTIVE:
+
+•	Bottom bar düzenlenerek sayfalara entegre edilmiştir.
+•	Rezervasyon sayfası zaman eksikliğinden dolayı statik olarak tanımlanmıştır. Karşılaştırma sayfası hariç diğer sayfaların kodlamaları tamamlanmıştır. Tamamlanamayan sayfa ve firebase bağlantıları değerlendirilmiştir.
+•	Kullanıcı bilgileri ,yorumlar ve otel arayüzlerinin firebase servislerine bağlantıları yapılmıştır.
+•	Takım üyelerinin bootcamp süreci performansı ve iletişimi değerlendirilmiştir.
