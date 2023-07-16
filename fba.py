@@ -13,6 +13,7 @@ hotels = [
         "Greenleaf Oasis otelinde geçirdiğim konaklama deneyimi oldukça çeşitli duyguları beraberinde getirdi. Otelin doğal güzelliklerle çevrili olduğu gerçekten etkileyiciydi. Yeşilin ve doğanın içinde kaybolmuş gibi hissetmek harikaydı. Otelin çevreci tasarımı ve sürdürülebilirlik çabaları da takdire şayandı. Doğal malzemelerin kullanımı ve enerji tüketimiyle ilgili önlemler, çevre dostu bir konaklama deneyimi sunuyor. Ancak, konaklama sürecinde bazı beklentilerimi karşılamayan unsurlar da vardı. Otelin hizmet kalitesi bazen düşük olabiliyordu ve bazı zamanlarda iletişim eksikliği yaşandı. Bu durum benim konaklamamı biraz etkiledi. 5 üzerinden 3",
         ["placeholder2.jpg"],
         5,
+        1.5,
     ],
     [
         "Verdant Retreat",
@@ -21,6 +22,7 @@ hotels = [
         "Verdant Retreat otelinde geçirdiğim tatil unutulmazdı. Doğa ile iç içe olan konumu ve çevre dostu tasarımı gerçekten etkileyiciydi. Odalar doğal malzemelerle dekore edilmişti ve huzurlu bir atmosfer sunuyordu. Otelin sürdürülebilirlik çabaları takdir edilesiydi. Küçük aksaklıklar yaşadığımı söylemek gerekirse, internet bağlantısı ve sıcak su temini bazen sorunlu olabiliyordu. Bununla birlikte, genel olarak Verdant Retreat'i 5 üzerinden 4 puanla değerlendiriyorum. Doğayla uyumlu bir konaklama deneyimi için harika bir seçenek olduğunu düşünüyorum.",
         ["placeholder2.jpg"],
         4,
+        2.5,
     ],
     [
         "Evergreen Retreat",
@@ -29,6 +31,7 @@ hotels = [
         "Evergreen Retreat otelinde geçirdiğim konaklamadan biraz hayal kırıklığı yaşadım. Otelin doğal bitki örtüsüyle kaplı bir çevrede konumlanması güzel olsa da, bazı beklentilerimi karşılamadı. Geri dönüştürülebilir malzemelerin kullanıldığı yapılar ve enerji önlemleri, çevre dostu bir konaklama deneyimi sunuyor olsa da, benim için yeterli değildi. Otelde hizmet kalitesi ve personelin ilgisi biraz düşük seviyedeydi. İletişim eksikliği ve bazı sorunlara hızlı çözüm bulamama gibi durumlar konaklamamı olumsuz etkiledi. Ayrıca, oda temizliği ve düzen konusunda da bazı aksaklıklar vardı. 5 üzerinden 2",
         ["placeholder2.jpg"],
         4,
+        3.5,
     ],
     [
         "Harmony Eco Lodge",
@@ -37,6 +40,7 @@ hotels = [
         "Harmony Eco Lodge'da geçirdiğim konaklama süreci harikaydı. Doğayla uyumlu yaklaşımı ve huzur dolu atmosferi beni etkiledi. Çevre dostu bir tatil deneyimi için mükemmel bir seçenek! 5 üzerinden 5",
         ["placeholder2.jpg"],
         3,
+        4.5,
     ],
     [
         "Tropikal Nefes",
@@ -45,6 +49,7 @@ hotels = [
         "Tropikal Nefes, eşsiz doğal güzellikleri ve sürdürülebilirlik odaklı yaklaşımıyla beni büyüledi. Burada kaldığım süre boyunca yerel flora ve fauna hakkında çok şey öğrendim. Çalışanlar, çevre dostu uygulamalara olan bağlılıklarıyla etkileyici bir örnek oldular. Konaklama birimleri harikaydı ve huzurlu bir atmosferde dinlenebildim. Kesinlikle geri dönmek isteyeceğim bir yer. 5 yıldız.",
         ["placeholder2.jpg"],
         4,
+        5.5,
     ],
     [
         "Dağların Sessizliği",
@@ -53,6 +58,7 @@ hotels = [
         "Dağların Sessizliği, adını hak eden bir otel. Buraya geldiğimde doğanın gücünü ve sessizliğini hissettim. Personel, çevrenin korunmasına büyük önem veriyor ve yerel topluluğa katkıda bulunuyor. Konforlu odalar ve nefes kesen manzaralar, tam bir geri çekilme ve yeniden şarj olma fırsatı sunuyor. Kesinlikle doğa severlere tavsiye ederim.",
         ["placeholder2.jpg"],
         2,
+        6.5,
     ],
 ]
 
@@ -94,5 +100,6 @@ if __name__ == "__main__":
                 "comments": comments,
                 "images": images,
                 "stars": hotels[i][5],
+                "distance": hotels[i][6]
             },
         )

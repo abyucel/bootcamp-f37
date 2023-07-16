@@ -189,19 +189,19 @@ class _HotelPageState extends State<HotelPage> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          iconButton(
+                                          customIconButton(
                                             buttonText: "Geri dönüşüm",
                                             icon: Icons.recycling,
                                           ),
-                                          iconButton(
+                                          customIconButton(
                                             buttonText: "Güvenlik",
                                             icon: Icons.lock,
                                           ),
-                                          iconButton(
+                                          customIconButton(
                                             buttonText: "Yeme içme",
                                             icon: Icons.restaurant,
                                           ),
-                                          iconButton(
+                                          customIconButton(
                                             buttonText: "Doğa dostu",
                                             icon: Icons.nature,
                                           )

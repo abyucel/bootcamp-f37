@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'main.dart';
 import 'view/auth_page.dart';
+import 'view/hotel_page.dart';
 import 'view/main_page.dart';
 import 'view/profile_page.dart';
 import 'view/search_page.dart';
@@ -364,7 +367,7 @@ BottomNavigationBar bottomNavbar(BuildContext context, int bottomBarPage) {
         notifySnackbar(context, "Bu özellik henüz eklenmedi.");
         return;
       }
-      if (i > 1 && authService.auth.currentUser == null) {
+      if (i > 0 && authService.auth.currentUser == null) {
         navigateWithSlide(
           context,
           const AuthPage(),
@@ -395,7 +398,7 @@ extension IndexedIterable<E> on Iterable<E> {
   }
 }
 
-TextButton iconButton({
+TextButton customIconButton({
   required String buttonText,
   required IconData icon,
   Color iconColor = Colors.blue,
@@ -425,6 +428,86 @@ TextButton iconButton({
           ),
         ),
       ],
+    ),
+  );
+}
+
+Widget hotelCard(BuildContext context, Map<String, dynamic> data) {
+  return GestureDetector(
+    onTap: () {
+      navigateWithSlide(
+        context,
+        HotelPage(data["id"].toString()),
+        SlideDirection.up,
+      );
+    },
+    child: Container(
+      color: data["id"] % 2 == 0 ? const Color(0xEEEEEEFF) : Colors.white,
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(16.0),
+            child: Image.memory(
+              base64Decode(data["images"][0]),
+              width: MediaQuery.of(context).size.width * 0.4,
+              height: 200,
+            ),
+          ),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.only(
+                left: 4.0,
+                right: 4.0,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        data["name"],
+                        style: const TextStyle(
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      Text(
+                        data["description"],
+                        maxLines: 3,
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16.0),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Merkeze ${data["distance"]} km.",
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      ratingBar(data["stars"]),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
     ),
   );
 }
