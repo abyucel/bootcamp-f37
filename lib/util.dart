@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'main.dart';
 import 'view/auth_page.dart';
@@ -226,6 +227,56 @@ TextField customTextField({
     ),
     decoration: InputDecoration(
       prefixIcon: Icon(icon),
+      hintText: hintText,
+      filled: filled,
+      fillColor: fillColor,
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          width: 2,
+          color: enabledBorderColor,
+        ),
+        borderRadius: BorderRadius.circular(32.0),
+      ),
+      disabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          width: 2,
+          color: disabledBorderColor,
+        ),
+        borderRadius: BorderRadius.circular(32.0),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          width: 2,
+          color: focusedBorderColor,
+        ),
+        borderRadius: BorderRadius.circular(32.0),
+      ),
+    ),
+  );
+}
+
+TextField customNumberField({
+  required TextEditingController controller,
+  required String hintText,
+  bool enabled = true,
+  bool filled = true,
+  Color fillColor = Colors.white,
+  Color textColor = Colors.black,
+  Color enabledBorderColor = Colors.grey,
+  Color disabledBorderColor = const Color.fromARGB(255, 64, 64, 64),
+  Color focusedBorderColor = Colors.blue,
+}) {
+  return TextField(
+    enabled: enabled,
+    controller: controller,
+    keyboardType: TextInputType.number,
+    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+    textAlign: TextAlign.center,
+    style: TextStyle(
+      fontSize: 16.0,
+      color: textColor,
+    ),
+    decoration: InputDecoration(
       hintText: hintText,
       filled: filled,
       fillColor: fillColor,

@@ -97,60 +97,62 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      body: Stack(
-        fit: StackFit.passthrough,
-        children: [
-          CustomPaint(
-            painter: HeaderWavePainter(color: Colors.blue),
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
+      body: SafeArea(
+        child: Stack(
+          fit: StackFit.passthrough,
+          children: [
+            CustomPaint(
+              painter: HeaderWavePainter(color: Colors.blue),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+              ),
             ),
-          ),
-          Container(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                customTextField(
-                  controller: _firstNameCtl,
-                  enabled: isEnabled,
-                  hintText: "Ad",
-                  icon: Icons.text_fields,
-                ),
-                const SizedBox(height: 16.0),
-                customTextField(
-                  controller: _lastNameCtl,
-                  enabled: isEnabled,
-                  hintText: "Soyad",
-                  icon: Icons.text_fields,
-                ),
-                const SizedBox(height: 16.0),
-                customTextField(
-                  controller: _emailCtl,
-                  enabled: isEnabled,
-                  hintText: "E-posta",
-                  icon: Icons.email,
-                ),
-                const SizedBox(height: 16.0),
-                customTextField(
-                  controller: _passwordCtl,
-                  enabled: isEnabled,
-                  hintText: "Şifre",
-                  obscureText: true,
-                  icon: Icons.key,
-                ),
-                const SizedBox(height: 16.0),
-                roundedButton(
-                  context,
-                  onPressed: register,
-                  buttonText: "Kayıt ol",
-                )
-              ],
-            ),
-          )
-        ],
+            Container(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  customTextField(
+                    controller: _firstNameCtl,
+                    enabled: isEnabled,
+                    hintText: "Ad",
+                    icon: Icons.text_fields,
+                  ),
+                  const SizedBox(height: 16.0),
+                  customTextField(
+                    controller: _lastNameCtl,
+                    enabled: isEnabled,
+                    hintText: "Soyad",
+                    icon: Icons.text_fields,
+                  ),
+                  const SizedBox(height: 16.0),
+                  customTextField(
+                    controller: _emailCtl,
+                    enabled: isEnabled,
+                    hintText: "E-posta",
+                    icon: Icons.email,
+                  ),
+                  const SizedBox(height: 16.0),
+                  customTextField(
+                    controller: _passwordCtl,
+                    enabled: isEnabled,
+                    hintText: "Şifre",
+                    obscureText: true,
+                    icon: Icons.key,
+                  ),
+                  const SizedBox(height: 16.0),
+                  roundedButton(
+                    context,
+                    onPressed: register,
+                    buttonText: "Kayıt ol",
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

@@ -54,88 +54,90 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              child: Center(
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  height: MediaQuery.of(context).size.width * 0.5,
-                  margin: const EdgeInsets.only(top: 16.0),
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(32.0)),
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                child: Center(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    height: MediaQuery.of(context).size.width * 0.5,
+                    margin: const EdgeInsets.only(top: 16.0),
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(32.0)),
+                    ),
+                    child: Image.asset("assets/logo.png"),
                   ),
-                  child: Image.asset("assets/logo.png"),
                 ),
               ),
-            ),
-            Expanded(
-              child: Container(
-                color: Colors.blue,
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const Center(
-                      child: Text(
-                        "Hesabınıza giriş yapın",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 22,
+              Expanded(
+                child: Container(
+                  color: Colors.blue,
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      const Center(
+                        child: Text(
+                          "Hesabınıza giriş yapın",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 22,
+                          ),
                         ),
                       ),
-                    ),
-                    customTextField(
-                      controller: _emailCtl,
-                      enabled: isEnabled,
-                      hintText: "E-posta",
-                      icon: Icons.email,
-                    ),
-                    customTextField(
-                      controller: _passwordCtl,
-                      enabled: isEnabled,
-                      hintText: "Şifre",
-                      icon: Icons.key,
-                      obscureText: true,
-                    ),
-                    roundedTextButton(
-                      context,
-                      onPressed: null,
-                      buttonText: "Şifreni mi unuttun?",
-                      textColor: Colors.white,
-                      foregroundColor: Colors.white,
-                    ),
-                    roundedButton(
-                      context,
-                      onPressed: login,
-                      buttonText: "Giriş yap",
-                      backgroundColor: Colors.white,
-                      foregroundColor: Colors.blue,
-                      textColor: Colors.black,
-                    ),
-                    roundedTextButton(
-                      context,
-                      onPressed: () {
-                        navigateWithSlide(
-                          context,
-                          const RegisterPage(),
-                          SlideDirection.down,
-                          replace: true,
-                        );
-                      },
-                      buttonText: "Hesabın yok mu? Kayıt ol!",
-                      textColor: Colors.white,
-                      foregroundColor: Colors.white,
-                    ),
-                  ],
+                      customTextField(
+                        controller: _emailCtl,
+                        enabled: isEnabled,
+                        hintText: "E-posta",
+                        icon: Icons.email,
+                      ),
+                      customTextField(
+                        controller: _passwordCtl,
+                        enabled: isEnabled,
+                        hintText: "Şifre",
+                        icon: Icons.key,
+                        obscureText: true,
+                      ),
+                      roundedTextButton(
+                        context,
+                        onPressed: null,
+                        buttonText: "Şifreni mi unuttun?",
+                        textColor: Colors.white,
+                        foregroundColor: Colors.white,
+                      ),
+                      roundedButton(
+                        context,
+                        onPressed: login,
+                        buttonText: "Giriş yap",
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.blue,
+                        textColor: Colors.black,
+                      ),
+                      roundedTextButton(
+                        context,
+                        onPressed: () {
+                          navigateWithSlide(
+                            context,
+                            const RegisterPage(),
+                            SlideDirection.down,
+                            replace: true,
+                          );
+                        },
+                        buttonText: "Hesabın yok mu? Kayıt ol!",
+                        textColor: Colors.white,
+                        foregroundColor: Colors.white,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
