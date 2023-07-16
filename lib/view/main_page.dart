@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:math';
 
 import 'package:carousel_slider/carousel_slider.dart';
@@ -6,7 +5,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../util.dart';
-import 'hotel_page.dart';
 import 'search_page.dart';
 
 class MainPage extends StatefulWidget {
