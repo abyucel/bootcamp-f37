@@ -197,6 +197,10 @@ Widget ratingBar(
   );
 }
 
+void notifySnackbar(BuildContext context, String message) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+}
+
 class TestPage extends StatelessWidget {
   const TestPage(this.message, {Key? key}) : super(key: key);
 

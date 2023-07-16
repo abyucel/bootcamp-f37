@@ -6,6 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../util.dart';
+import 'profile_page.dart';
+import 'search_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -35,7 +37,7 @@ class _MainPageState extends State<MainPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search, size: 32),
-            label: "Otel ara",
+            label: "Arama",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person, size: 32),
@@ -52,11 +54,16 @@ class _MainPageState extends State<MainPage> {
           if (i == bottomBarPage) return;
           final routes = [
             const MainPage(),
-            const TestPage("SearchPage"),
-            const TestPage("ProfilePage"),
+            const SearchPage(),
+            const ProfilePage(),
             const TestPage("NotificationPage"),
           ];
-          navigateWithSlide(context, routes[i], SlideDirection.left);
+          navigateWithSlide(
+            context,
+            routes[i],
+            SlideDirection.up,
+            replace: true,
+          );
         },
       ),
       body: Column(
@@ -102,12 +109,13 @@ class _MainPageState extends State<MainPage> {
             padding: const EdgeInsets.only(left: 16.0, right: 16.0),
             child: roundedButton(
               context,
-              buttonText: "Otel ara...",
+              buttonText: "Hadi bir otel ara...",
               onPressed: () {
                 navigateWithSlide(
                   context,
-                  const TestPage("SearchPage"),
-                  SlideDirection.down,
+                  const SearchPage(),
+                  SlideDirection.up,
+                  replace: true,
                 );
               },
             ),
@@ -128,60 +136,72 @@ class _MainPageState extends State<MainPage> {
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
                     final data = doc.data()! as Map<String, dynamic>;
-                    return Container(
-                      color: data["id"] % 2 == 0
-                          ? const Color(0xEEEEEEFF)
-                          : Colors.white,
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.memory(
-                            base64Decode(data["images"][0]),
-                            width: MediaQuery.of(context).size.width * 0.4,
-                            height: 200,
-                          ),
-                          Expanded(
-                            child: Container(
-                              padding: const EdgeInsets.only(
-                                left: 8.0,
-                                right: 8.0,
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    data["name"],
-                                    style: const TextStyle(
-                                      fontSize: 24.0,
-                                      fontWeight: FontWeight.bold,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ),
-                                  Text(
-                                    data["description"],
-                                    maxLines: 3,
-                                    style: const TextStyle(
-                                      fontSize: 16.0,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ),
-                                  Text(
-                                    "Merkeze ${((rand.nextDouble() * 5).toStringAsPrecision(2))} km",
-                                    style: const TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.bold,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ),
-                                  ratingBar(data["stars"]),
-                                ],
+                    return GestureDetector(
+                      onTap: () {
+                        navigateWithSlide(
+                          context,
+                          TestPage("HotelPage(${data["id"]})"),
+                          SlideDirection.up,
+                        );
+                      },
+                      child: Container(
+                        color: data["id"] % 2 == 0
+                            ? const Color(0xEEEEEEFF)
+                            : Colors.white,
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(16.0),
+                              child: Image.memory(
+                                base64Decode(data["images"][0]),
+                                width: MediaQuery.of(context).size.width * 0.4,
+                                height: 200,
                               ),
                             ),
-                          )
-                        ],
+                            Expanded(
+                              child: Container(
+                                padding: const EdgeInsets.only(
+                                  left: 4.0,
+                                  right: 4.0,
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      data["name"],
+                                      style: const TextStyle(
+                                        fontSize: 24.0,
+                                        fontWeight: FontWeight.bold,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                    Text(
+                                      data["description"],
+                                      maxLines: 3,
+                                      style: const TextStyle(
+                                        fontSize: 16.0,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                    Text(
+                                      "Merkeze ${((rand.nextDouble() * 5).toStringAsFixed(2))} km.",
+                                      style: const TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.bold,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                    ratingBar(data["stars"]),
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     );
                   }).toList(),

@@ -28,6 +28,7 @@ class _LoginPageState extends State<LoginPage> {
         _passwordCtl.text = "";
         isEnabled = true;
       });
+      if (context.mounted) notifySnackbar(context, result.unwrapErr());
       return;
     }
     if (context.mounted) {

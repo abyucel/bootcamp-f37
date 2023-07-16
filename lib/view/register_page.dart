@@ -31,6 +31,8 @@ class _RegisterPageState extends State<RegisterPage> {
         _passwordCtl.text = "";
         isEnabled = true;
       });
+      if (context.mounted) notifySnackbar(context, result.unwrapErr());
+
       return;
     }
     final user = authService.auth.currentUser!;
@@ -47,20 +49,24 @@ class _RegisterPageState extends State<RegisterPage> {
           .doc(user.uid)
           .set(userData.toMap());
     } catch (e) {
-      print("Failed to register correctly. The user doesn't have any data now");
       setState(() {
         _passwordCtl.text = "";
         isEnabled = true;
       });
+      if (context.mounted) {
+        notifySnackbar(context, "Veri kaydı hatası. Bize ulaşın.");
+      }
       return;
     }
     result = await authService.login(_emailCtl.text, _passwordCtl.text);
     if (result.isErr) {
-      print("Failed to login after a successful register.");
       setState(() {
         _passwordCtl.text = "";
         isEnabled = true;
       });
+      if (context.mounted) {
+        notifySnackbar(context, "Kayıttan sonra giriş başarısız.");
+      }
       return;
     }
     if (context.mounted) {

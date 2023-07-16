@@ -60,7 +60,6 @@ class AuthPage extends StatelessWidget {
                     onPressed: () {
                       navigateWithSlide(
                         context,
-                        //const TestPage("MainPage"),
                         const MainPage(),
                         SlideDirection.down,
                       );
