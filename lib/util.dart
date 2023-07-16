@@ -332,6 +332,52 @@ BottomNavigationBar bottomNavbar(BuildContext context, int bottomBarPage) {
   );
 }
 
+List<T> atMost<T>(List<T> list, int i) {
+  if (list.length >= i) return list.sublist(0, i);
+  return list;
+}
+
+extension IndexedIterable<E> on Iterable<E> {
+  Iterable<T> mapIndexed<T>(T Function(E e, int i) f) {
+    var i = 0;
+    return map((e) => f(e, i++));
+  }
+}
+
+TextButton iconButton({
+  required String buttonText,
+  required IconData icon,
+  Color iconColor = Colors.blue,
+  double iconSize = 32.0,
+  Color textColor = Colors.black,
+  double fontSize = 16.0,
+  void Function()? onPressed,
+}) {
+  return TextButton(
+    onPressed: onPressed,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Icon(
+          icon,
+          size: iconSize,
+          color: iconColor,
+        ),
+        Text(
+          buttonText,
+          maxLines: 8,
+          style: TextStyle(
+            color: textColor,
+            fontSize: fontSize,
+            fontWeight: FontWeight.normal,
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
 class TestPage extends StatelessWidget {
   const TestPage(this.message, {Key? key}) : super(key: key);
 

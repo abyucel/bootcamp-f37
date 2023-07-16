@@ -6,6 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../util.dart';
+import 'hotel_page.dart';
 import 'search_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -98,7 +99,7 @@ class _MainPageState extends State<MainPage> {
                       onTap: () {
                         navigateWithSlide(
                           context,
-                          TestPage("HotelPage(${data["id"]})"),
+                          HotelPage(data["id"].toString()),
                           SlideDirection.up,
                         );
                       },
