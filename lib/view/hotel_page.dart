@@ -4,7 +4,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import '../common/colors.dart';
 import '../util.dart';
+import 'comments_page.dart';
 import 'reservation_page.dart';
 
 class HotelPage extends StatefulWidget {
@@ -50,7 +52,7 @@ class _HotelPageState extends State<HotelPage> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(32.0),
                     child: Container(
-                      color: Colors.blue,
+                      color: AppColors.blue,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -101,54 +103,66 @@ class _HotelPageState extends State<HotelPage> {
                               ],
                             ),
                           ),
-                          Container(
-                            margin: const EdgeInsets.only(
-                              left: 16.0,
-                              right: 16.0,
-                              top: 8.0,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    ratingBar(data["stars"]),
-                                    const SizedBox(width: 8.0),
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(16.0),
-                                      child: Container(
-                                        padding: const EdgeInsets.all(6.0),
-                                        color: Colors.amber,
-                                        child: Text(
-                                          " ${data["comments"].length} oy ",
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.bold,
+                          GestureDetector(
+                            onTap: () {
+                              navigateWithSlide(
+                                context,
+                                CommentsPage(data["id"].toString()),
+                                SlideDirection.up,
+                              );
+                            },
+                            child: Container(
+                              margin: const EdgeInsets.only(
+                                left: 16.0,
+                                right: 16.0,
+                                top: 8.0,
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      ratingBar(data["stars"]),
+                                      const SizedBox(width: 8.0),
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(16.0),
+                                        child: Container(
+                                          padding: const EdgeInsets.all(6.0),
+                                          color: AppColors.gold,
+                                          child: Text(
+                                            " ${data["comments"].length} oy ",
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 8.0),
-                                SizedBox(
-                                  child: Row(
-                                    children: [
-                                      ...atMost(data["comments"], 4).mapIndexed(
-                                        (i, e) {
-                                          return const CircleAvatar(
-                                            radius: 16.0,
-                                            backgroundImage: AssetImage(
-                                              "assets/placeholder.jpg",
-                                            ),
-                                          );
-                                        },
-                                      ).toList()
                                     ],
                                   ),
-                                )
-                              ],
+                                  const SizedBox(height: 8.0),
+                                  SizedBox(
+                                    child: Row(
+                                      children: [
+                                        ...atMost(data["comments"], 4)
+                                            .mapIndexed(
+                                          (i, e) {
+                                            return const CircleAvatar(
+                                              radius: 16.0,
+                                              backgroundImage: AssetImage(
+                                                "assets/placeholder.jpg",
+                                              ),
+                                            );
+                                          },
+                                        ).toList()
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                           Expanded(

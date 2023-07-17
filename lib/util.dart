@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'common/colors.dart';
 import 'main.dart';
 import 'view/auth_page.dart';
 import 'view/hotel_page.dart';
@@ -156,7 +157,7 @@ ElevatedButton roundedButton(
   BuildContext context, {
   void Function()? onPressed,
   required String buttonText,
-  Color backgroundColor = Colors.blueAccent,
+  Color backgroundColor = AppColors.blueAccent,
   Color foregroundColor = Colors.white,
   Color textColor = Colors.white,
 }) {
@@ -184,8 +185,8 @@ TextButton roundedTextButton(
   BuildContext context, {
   void Function()? onPressed,
   required String buttonText,
-  Color foregroundColor = Colors.blue,
-  Color textColor = Colors.grey,
+  Color foregroundColor = AppColors.blue,
+  Color textColor = AppColors.grey,
   double fontSize = 16.0,
 }) {
   return TextButton(
@@ -215,9 +216,9 @@ TextField customTextField({
   bool filled = true,
   Color fillColor = Colors.white,
   Color textColor = Colors.black,
-  Color enabledBorderColor = Colors.grey,
+  Color enabledBorderColor = AppColors.grey,
   Color disabledBorderColor = const Color.fromARGB(255, 64, 64, 64),
-  Color focusedBorderColor = Colors.blue,
+  Color focusedBorderColor = AppColors.blue,
   IconData icon = Icons.error,
 }) {
   return TextField(
@@ -265,9 +266,9 @@ TextField customNumberField({
   bool filled = true,
   Color fillColor = Colors.white,
   Color textColor = Colors.black,
-  Color enabledBorderColor = Colors.grey,
+  Color enabledBorderColor = AppColors.grey,
   Color disabledBorderColor = const Color.fromARGB(255, 64, 64, 64),
-  Color focusedBorderColor = Colors.blue,
+  Color focusedBorderColor = AppColors.blue,
 }) {
   return TextField(
     enabled: enabled,
@@ -318,7 +319,7 @@ Widget ratingBar(
       rating < 1 || rating > 5 ? 5 : rating,
       (i) => const Icon(
         Icons.star,
-        color: Colors.amber,
+        color: AppColors.gold,
       ),
     ),
   );
@@ -328,10 +329,14 @@ void notifySnackbar(BuildContext context, String message) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
 }
 
-BottomNavigationBar bottomNavbar(BuildContext context, int bottomBarPage) {
+BottomNavigationBar bottomNavbar(
+  BuildContext context,
+  int bottomBarPage, {
+  bool noPage = false,
+}) {
   return BottomNavigationBar(
     type: BottomNavigationBarType.fixed,
-    backgroundColor: Colors.blueAccent,
+    backgroundColor: AppColors.blueAccent,
     unselectedItemColor: Colors.white,
     showSelectedLabels: false,
     showUnselectedLabels: false,
@@ -353,10 +358,10 @@ BottomNavigationBar bottomNavbar(BuildContext context, int bottomBarPage) {
         label: "Bildirimler",
       ),
     ],
-    currentIndex: bottomBarPage,
-    selectedItemColor: Colors.amber,
+    currentIndex: noPage ? 0 : bottomBarPage,
+    selectedItemColor: noPage ? Colors.white : AppColors.gold,
     onTap: (i) {
-      if (i == bottomBarPage) return;
+      if (!noPage && i == bottomBarPage) return;
       final routes = [
         const MainPage(),
         const SearchPage(),
@@ -381,6 +386,7 @@ BottomNavigationBar bottomNavbar(BuildContext context, int bottomBarPage) {
         routes[i],
         SlideDirection.up,
         replace: true,
+        clearHistory: noPage,
       );
     },
   );
@@ -401,7 +407,7 @@ extension IndexedIterable<E> on Iterable<E> {
 TextButton customIconButton({
   required String buttonText,
   required IconData icon,
-  Color iconColor = Colors.blue,
+  Color iconColor = AppColors.blue,
   double iconSize = 32.0,
   Color textColor = Colors.black,
   double fontSize = 16.0,
@@ -523,7 +529,7 @@ class TestPage extends StatelessWidget {
     print(message ?? "TestPage");
     return Scaffold(
       body: Container(
-        color: Colors.red,
+        color: AppColors.red,
         child: Center(
           child: Text(
             message ?? "TestPage",

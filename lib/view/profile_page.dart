@@ -2,6 +2,7 @@ import 'package:accordion/accordion.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import '../common/colors.dart';
 import '../main.dart';
 import '../util.dart';
 import 'main_page.dart';
@@ -26,7 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
           fit: StackFit.passthrough,
           children: [
             CustomPaint(
-              painter: HeaderProfilePainter(color: Colors.blue),
+              painter: HeaderProfilePainter(color: AppColors.blue),
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
@@ -89,8 +90,8 @@ class _ProfilePageState extends State<ProfilePage> {
                               child: roundedTextButton(
                                 context,
                                 buttonText: "Çıkış yap",
-                                textColor: Colors.red,
-                                foregroundColor: Colors.red,
+                                textColor: AppColors.red,
+                                foregroundColor: AppColors.red,
                                 fontSize: 22.0,
                                 onPressed: () async {
                                   await authService.logout();
@@ -111,7 +112,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               ),
                               child: Accordion(
                                 maxOpenSections: 1,
-                                headerBackgroundColorOpened: Colors.blue,
+                                headerBackgroundColorOpened: AppColors.blue,
                                 headerBackgroundColor: Colors.white,
                                 rightIcon: const Icon(Icons.chevron_right),
                                 children: [

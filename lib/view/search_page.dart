@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import '../common/colors.dart';
 import '../main.dart';
 import '../util.dart';
 
@@ -34,7 +35,7 @@ class _SearchPageState extends State<SearchPage> {
               builder: (context, hotelsSnapshot) {
                 if (!userSnapshot.hasData || !hotelsSnapshot.hasData) {
                   return const Center(
-                    child: CircularProgressIndicator(color: Colors.blue),
+                    child: CircularProgressIndicator(color: AppColors.blue),
                   );
                 }
                 final userData = userSnapshot.data!;
@@ -72,7 +73,7 @@ class _SearchPageState extends State<SearchPage> {
                             ],
                           ),
                           CircleAvatar(
-                            backgroundColor: Colors.blue,
+                            backgroundColor: AppColors.blue,
                             radius: MediaQuery.of(context).size.width / 16 + 4,
                             child: CircleAvatar(
                               radius: MediaQuery.of(context).size.width / 16,
@@ -133,7 +134,7 @@ class _SearchPageState extends State<SearchPage> {
                             ...[1, 2, 3, 4, 5].map(
                               (e) => Container(
                                 width: 100,
-                                color: Colors.red,
+                                color: AppColors.red,
                                 child: Center(child: Text(e.toString())),
                               ),
                             ),

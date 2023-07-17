@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import '../common/colors.dart';
 import '../util.dart';
 
 class ReservationPage extends StatefulWidget {
@@ -28,7 +29,7 @@ class _ReservationPageState extends State<ReservationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.blue,
+      backgroundColor: AppColors.blue,
       body: SafeArea(
         child: StreamBuilder(
           stream: FirebaseFirestore.instance
@@ -118,7 +119,7 @@ class _ReservationPageState extends State<ReservationPage> {
                                 ),
                                 const Icon(
                                   Icons.arrow_right_alt,
-                                  color: Colors.grey,
+                                  color: AppColors.grey,
                                   size: 32.0,
                                 ),
                                 roundedTextButton(
@@ -166,7 +167,7 @@ class _ReservationPageState extends State<ReservationPage> {
                                   context,
                                   buttonText: "Ödeme yöntemi seç",
                                   backgroundColor: Colors.white,
-                                  foregroundColor: Colors.blue,
+                                  foregroundColor: AppColors.blue,
                                   textColor: Colors.black,
                                   onPressed: () {
                                     notifySnackbar(

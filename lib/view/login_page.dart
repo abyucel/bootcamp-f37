@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../common/colors.dart';
 import '../main.dart';
 import '../util.dart';
 import 'main_page.dart';
@@ -75,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Expanded(
                 child: Container(
-                  color: Colors.blue,
+                  color: AppColors.blue,
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -115,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                         onPressed: login,
                         buttonText: "Giriş yap",
                         backgroundColor: Colors.white,
-                        foregroundColor: Colors.blue,
+                        foregroundColor: AppColors.blue,
                         textColor: Colors.black,
                       ),
                       roundedTextButton(

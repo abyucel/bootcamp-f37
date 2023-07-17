@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import '../common/colors.dart';
 import '../util.dart';
 import 'search_page.dart';
 
@@ -29,7 +30,7 @@ class _MainPageState extends State<MainPage> {
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
               return const Center(
-                child: CircularProgressIndicator(color: Colors.blue),
+                child: CircularProgressIndicator(color: AppColors.blue),
               );
             }
             return Column(
@@ -42,7 +43,7 @@ class _MainPageState extends State<MainPage> {
                     child: Text(
                       "One With Nature",
                       style: TextStyle(
-                        color: Colors.blue,
+                        color: AppColors.blue,
                         fontSize: 44,
                         fontWeight: FontWeight.bold,
                         fontStyle: FontStyle.italic,

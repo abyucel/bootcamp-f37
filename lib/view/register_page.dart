@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import '../common/colors.dart';
 import '../common/user.dart';
 import '../main.dart';
 import '../util.dart';
@@ -102,7 +103,7 @@ class _RegisterPageState extends State<RegisterPage> {
           fit: StackFit.passthrough,
           children: [
             CustomPaint(
-              painter: HeaderWavePainter(color: Colors.blue),
+              painter: HeaderWavePainter(color: AppColors.blue),
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
