@@ -20,6 +20,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       bottomNavigationBar: bottomNavbar(context, bottomBarPage),
       body: SafeArea(
@@ -118,30 +119,83 @@ class _SearchPageState extends State<SearchPage> {
                       margin: const EdgeInsets.only(
                         left: 16.0,
                         right: 16.0,
+                        top: 16.0,
+                        bottom: 16.0,
+                      ),
+                      child: const Text(
+                        "Popüler Ecoteller",
+                        style: TextStyle(
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(
+                        left: 16.0,
+                        right: 16.0,
                         bottom: 8.0,
                       ),
                       child: SizedBox(
-                        height: 200,
+                        height: MediaQuery.of(context).size.height * 0.33,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
                           children: [
-                            /*
                             ...atMost(hotelsData.docs, 3).mapIndexed(
-                              (e, i) => hotelCard(context, e.data()),
-                            )
-                            */
-                            ...[1, 2, 3, 4, 5].map(
-                              (e) => Container(
-                                width: 100,
-                                color: AppColors.red,
-                                child: Center(child: Text(e.toString())),
+                              (e, i) => hotelCardAlt(
+                                context,
+                                MediaQuery.of(context).size.width * 0.75,
+                                e.data(),
                               ),
                             ),
                           ],
                         ),
                       ),
                     ),
+                    Container(
+                      margin: const EdgeInsets.only(
+                        left: 16.0,
+                        right: 16.0,
+                        bottom: 8.0,
+                      ),
+                      child: SizedBox(
+                        height: 58.0,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          shrinkWrap: true,
+                          children: [
+                            ...[
+                              "Yayla turizmi",
+                              "Kış turizmi",
+                              "Sağlık turizmi",
+                              "Dağ turizmi"
+                            ].mapIndexed(
+                              (buttonText, i) {
+                                return Container(
+                                  margin: EdgeInsets.only(
+                                    top: 8.0,
+                                    bottom: 8.0,
+                                    left: i > 0 ? 16.0 : 0.0,
+                                  ),
+                                  child: roundedButton(
+                                    context,
+                                    backgroundColor: Colors.white,
+                                    foregroundColor: AppColors.blue,
+                                    textColor: Colors.black,
+                                    elevation: 4.0,
+                                    buttonText: buttonText,
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.normal,
+                                    onPressed: () {},
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
                   ],
                 );
               },

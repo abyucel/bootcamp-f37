@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -157,9 +158,13 @@ ElevatedButton roundedButton(
   BuildContext context, {
   void Function()? onPressed,
   required String buttonText,
+  double fontSize = 20.0,
+  FontWeight fontWeight = FontWeight.bold,
   Color backgroundColor = AppColors.blueAccent,
   Color foregroundColor = Colors.white,
   Color textColor = Colors.white,
+  Color shadowColor = Colors.black,
+  double elevation = 0.0,
 }) {
   return ElevatedButton(
     onPressed: onPressed,
@@ -170,12 +175,15 @@ ElevatedButton roundedButton(
       ),
       backgroundColor: backgroundColor,
       foregroundColor: foregroundColor,
+      shadowColor: shadowColor,
+      elevation: elevation,
     ),
     child: Text(
       buttonText,
       style: TextStyle(
         color: textColor,
-        fontSize: 20.0,
+        fontSize: fontSize,
+        fontWeight: fontWeight,
       ),
     ),
   );
@@ -220,11 +228,13 @@ TextField customTextField({
   Color disabledBorderColor = const Color.fromARGB(255, 64, 64, 64),
   Color focusedBorderColor = AppColors.blue,
   IconData icon = Icons.error,
+  TextAlign textAlign = TextAlign.start,
 }) {
   return TextField(
     enabled: enabled,
     controller: controller,
     obscureText: obscureText,
+    textAlign: textAlign,
     style: TextStyle(
       fontSize: 16.0,
       color: textColor,
@@ -450,6 +460,7 @@ Widget hotelCard(BuildContext context, Map<String, dynamic> data) {
     child: Container(
       color: data["id"] % 2 == 0 ? const Color(0xEEEEEEFF) : Colors.white,
       padding: const EdgeInsets.all(8.0),
+      width: MediaQuery.of(context).size.width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -513,6 +524,93 @@ Widget hotelCard(BuildContext context, Map<String, dynamic> data) {
             ),
           )
         ],
+      ),
+    ),
+  );
+}
+
+Widget hotelCardAlt(
+    BuildContext context, double width, Map<String, dynamic> data) {
+  return GestureDetector(
+    onTap: () {
+      navigateWithSlide(
+        context,
+        HotelPage(data["id"].toString()),
+        SlideDirection.up,
+      );
+    },
+    child: Container(
+      width: width,
+      margin: const EdgeInsets.all(4.0),
+      child: Card(
+        elevation: 5.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.0),
+        ),
+        child: Container(
+          margin: const EdgeInsets.only(
+            left: 16.0,
+            right: 16.0,
+            top: 8.0,
+            bottom: 8.0,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                flex: 75,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(32.0),
+                  child: Image.memory(
+                    base64Decode(data["images"].last),
+                    height: double.infinity,
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 25,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      data["name"],
+                      style: const TextStyle(
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.eco_outlined,
+                              color: AppColors.green,
+                            ),
+                            Text(
+                              (Random().nextDouble() + Random().nextInt(5))
+                                  .toStringAsFixed(2),
+                              style: const TextStyle(
+                                color: AppColors.green,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        ratingBar(data["stars"]),
+                      ],
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     ),
   );

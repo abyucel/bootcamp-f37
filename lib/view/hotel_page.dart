@@ -5,7 +5,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../common/colors.dart';
+import '../main.dart';
 import '../util.dart';
+import 'auth_page.dart';
 import 'comments_page.dart';
 import 'reservation_page.dart';
 
@@ -233,12 +235,17 @@ class _HotelPageState extends State<HotelPage> {
                                         context,
                                         buttonText: "Rezerve et",
                                         onPressed: () {
+                                          final user =
+                                              authService.auth.currentUser;
                                           navigateWithSlide(
                                             context,
-                                            ReservationPage(
-                                              data["id"].toString(),
-                                            ),
+                                            user != null
+                                                ? ReservationPage(
+                                                    data["id"].toString(),
+                                                  )
+                                                : const AuthPage(),
                                             SlideDirection.up,
+                                            clearHistory: user == null,
                                           );
                                         },
                                       ),
