@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -530,20 +529,19 @@ Widget hotelCard(BuildContext context, Map<String, dynamic> data) {
 }
 
 Widget hotelCardAlt(
-    BuildContext context, double width, Map<String, dynamic> data) {
+  BuildContext context,
+  Map<String, dynamic> data, {
+  required double width,
+  required void Function() onTap,
+  bool chosen = false,
+}) {
   return GestureDetector(
-    onTap: () {
-      navigateWithSlide(
-        context,
-        HotelPage(data["id"].toString()),
-        SlideDirection.up,
-      );
-    },
+    onTap: onTap,
     child: Container(
       width: width,
       margin: const EdgeInsets.all(4.0),
       child: Card(
-        elevation: 5.0,
+        elevation: chosen ? 5.0 : 2.0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.0),
         ),
@@ -592,8 +590,7 @@ Widget hotelCardAlt(
                               color: AppColors.green,
                             ),
                             Text(
-                              (Random().nextDouble() + Random().nextInt(5))
-                                  .toStringAsFixed(2),
+                              data["eco"].toStringAsFixed(2),
                               style: const TextStyle(
                                 color: AppColors.green,
                                 fontSize: 16.0,

@@ -1,9 +1,13 @@
+import 'dart:convert';
+
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../common/colors.dart';
 import '../main.dart';
 import '../util.dart';
+import 'hotel_page.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -13,9 +17,10 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+  final _hotelSearchCtl = TextEditingController();
   final bottomBarPage = 1;
 
-  final _hotelSearchCtl = TextEditingController();
+  int chosen = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -143,11 +148,30 @@ class _SearchPageState extends State<SearchPage> {
                           shrinkWrap: true,
                           children: [
                             ...atMost(hotelsData.docs, 3).mapIndexed(
-                              (e, i) => hotelCardAlt(
-                                context,
-                                MediaQuery.of(context).size.width * 0.75,
-                                e.data(),
-                              ),
+                              (e, i) {
+                                final data = e.data();
+                                return hotelCardAlt(
+                                  context,
+                                  data,
+                                  chosen: chosen == data["id"] ||
+                                      i == 0 && chosen == -1,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.75,
+                                  onTap: () {
+                                    if (chosen == data["id"]) {
+                                      navigateWithSlide(
+                                        context,
+                                        HotelPage(data["id"].toString()),
+                                        SlideDirection.up,
+                                      );
+                                      return;
+                                    }
+                                    setState(() {
+                                      chosen = data["id"];
+                                    });
+                                  },
+                                );
+                              },
                             ),
                           ],
                         ),
@@ -195,7 +219,40 @@ class _SearchPageState extends State<SearchPage> {
                           ],
                         ),
                       ),
-                    )
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(
+                        left: 16.0,
+                        right: 16.0,
+                        bottom: 8.0,
+                      ),
+                      child: CarouselSlider(
+                        options: CarouselOptions(
+                          height: MediaQuery.of(context).size.height * 0.2,
+                          autoPlay: true,
+                          pauseAutoPlayOnManualNavigate: false,
+                          enlargeCenterPage: true,
+                        ),
+                        items: hotelsData.docs.map((e) => e.data()).firstWhere(
+                          (e) {
+                            return e["id"] == chosen;
+                          },
+                          orElse: () {
+                            return hotelsData.docs.first.data();
+                          },
+                        )["images"].map<Widget>(
+                          (e) {
+                            return Container(
+                              margin: const EdgeInsets.only(
+                                left: 4.0,
+                                right: 4.0,
+                              ),
+                              child: Image.memory(base64Decode(e)),
+                            );
+                          },
+                        ).toList(),
+                      ),
+                    ),
                   ],
                 );
               },
