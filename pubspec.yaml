@@ -3,11 +3,11 @@
 name: ekotel
 description: OUA Bootcamp Project, F-37
 
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.3 <4.0.0'
+  sdk: ">=3.0.3 <4.0.0"
 
 dependencies:
   flutter:
@@ -27,6 +27,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: "^0.13.1"
 
 flutter:
   uses-material-design: true
@@ -35,7 +36,6 @@ flutter:
   assets:
     - assets/
   #   - images/a_dot_ham.jpeg
-
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -69,7 +69,6 @@ flutter:
       fonts:
         - asset: assets/fonts/RobotoCondensed-Regular.ttf
 
-
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
@@ -79,3 +78,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/icon.png
