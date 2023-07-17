@@ -6,5 +6,5 @@ class AppColors {
   static const blueDarker = Color(0xFF073864);
   static const gold = Color(0xFFFBE201);
   static const red = Color(0xFFFF0000);
-  static const grey = Color(0xFFF4DEDE);
+  static const grey = Color(0xFF494949);
 }
